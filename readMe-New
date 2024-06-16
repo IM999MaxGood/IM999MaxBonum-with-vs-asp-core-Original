@@ -1,0 +1,128 @@
+win10 last update
+
+install:
+1-aspnetcore-runtime-2.1.0-rc1-final-win-x64
+2-dotnet-runtime-2.0.5-win-x64
+3-dotnet-sdk-2.1.502-win-x64
+4-dotnet-hosting-2.2.1-win
+
+updated: 
+1-aspnetcore-2.2.1-win-x64
+2-dotnet-runtime-2.2.1-win-x64
+3-dotnet-sdk-2.2.1-x64
+4-dotnet-hosting-2.2.1-win
+
+
+install VSCode
+install C# extention in VSCode
+install C# Dev Kit
+
+open IM999MaxBonum folder with VSCode
+
+*for run codemirror plugin in \IM999MaxBonum\wwwroot\plugin\tinymce\plugins****
+install node.js => https://nodejs.org/en/
+    set path to C:\Program Files\nodejs
+    run node -v
+    run npm install -g http-server => for Install a package if necessary. 
+    run npm fund
+    
+run npm install -g npm
+
+
+install sql server
+create database IM999MaxBonum_vs_Net_Core
+run script SQL\db\script 2024-01-27.sql
+change connection string in appsettings.json change Server
+create login for IIS APPPOOL\IM999MaxBonum with vs asp core with sysadmin in sql server login
+
+*for run*****************
+error in Views\Users\Index.cshtml line 75 remove comment @*
+press ctrl+shift+b
+run dotnet clean in vscode powershell
+run dotnet publish -o C:\temp in vscode powershell
+press F5
+    select C#
+
+****************************
+instagram plugin not work
+google map not work
+
+admin page in /admin login with user:admin password:ad123>
+show pages like /ir/Page/Detail?id=4
+
+*logs of changed files before run***********************************
+changed data\IM999Max_DotNetCore.cs for read connection string from appsettings.json
+changed Startup.cs for create ~ folder in root
+changed Resources\Resource.cs for read from project directory
+changed Menus\Menus.cs for read from project directory
+changed Resources .resx for tel numbers 
+changed IM999MaxBonum.csproj for add Resources and Menus to bin directory
+changed Views\Shared\_Layout.cshtml for tel numbers
+changed Views\Home\Index.cshtml for tel numbers
+changed wwwroot\js\script.js line 166 add try for disconnect internet page load
+----changed Areas\Admin\Controllers\PagesController.cs line 71 for read from project directory
+
+*for deploy in iis*************************************
+
+run dotnet clean in vscode powershell
+run dotnet publish -o C:\temp in vscode powershell
+copy c:\temp to IM999MaxBonum with vs asp core
+copy Menus .xml files
+copy Resources .resx files
+
+install iis 
+install iis application development features 
+
+1-add website
+    -physical address to: IM999MaxBonum with vs asp core\
+    -In the Edit Application Pool window, set the .NET CLR version: No Managed Code
+
+
+*for deploy in iis express**********************************
+
+install iis express
+install iis express extention
+add iisexpress.json in .vscode folder 
+run appcmd set config /section:system.webServer/directoryBrowse /enabled:true on iis express directory
+
+run dotnet clean in vscode powershell
+run dotnet publish -o C:\temp in vscode powershell
+set path in iisexpress.json to "path": "c:/temp/"
+
+set follows in c:\[users-folder]\document\iisexpress\config\applicationhost.config
+
+    1-
+            <!--im999-->
+            <add name="AspNetCoreModule" image="%SystemRoot%\system32\inetsrv\aspnetcore.dll" />
+            <add name="AspNetCoreModuleV2" image="c:\Program Files\IIS\Asp.Net Core Module\V2\aspnetcorev2.dll" />
+        </globalModules>
+
+    2-
+            <!--im999-->
+            <add name="AspNetCoreModule" lockItem="true" />
+            <add name="AspNetCoreModuleV2" lockItem="true" />
+        </modules>
+
+    3-
+        <sectionGroup name="system.webServer">
+            <!-- im999-->
+            <section name="aspNetCore" overrideModeDefault="Allow" />
+   
+    4-
+            <!-- im999 
+            <section name="windowsAuthentication" overrideModeDefault="Deny" />
+            -->
+            <section name="windowsAuthentication" overrideModeDefault="Allow" />
+
+        </sectionGroup>
+
+ i forced to install visual studio for errors of iisexpress :(
+
+*for debuging in iis****************************
+install visual studio
+run website in iis
+run vs 
+    click debug>Attach to Process in vs
+    Check the "Show processes from all users" checkbox in the bottom left corner
+    Select aspnet_wp.exe, w3p.exe, or w3wp.exe from the process list
+    Click "Attach"

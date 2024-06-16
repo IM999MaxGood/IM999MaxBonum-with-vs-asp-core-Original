@@ -1,0 +1,58 @@
+***نصبیها*****************************************************************
+ویندوز دز حال کار > Win10 آخرین نسخه
+_نصب DotNetCore.2.0.5-WindowsHosting.exe  > hard:\Softwares\VSCode\c#
+_نصب aspnetcore-runtime-2.1.0-rc1-final-win-x64.exe > hard:\Softwares\VSCode\c#
+_نصب dotnet-sdk-2.1.300-rc1-008673-win-x64 > hard:\Softwares\VSCode\c#
+
+_نصب VSCodeSetup-x64 آخرین نسخه > hard:\Softwares\VSCode
+
+*نصب داخل > VSCode > در بخش > Extensions****
+_C# ms-vscode.csharp  > C# programming with Visual Studio Code
+
+
+***مراحل انتشار در آی.آی.اس***********************************************
+1-dotnet publish -o C:\temp
+    انتقال فایلها به مسیر دلخواه
+2-تغییر اپلیکیشن سایت به 
+    No Managed Code
+    In the Edit Application Pool window, set the .NET CLR version to No Managed Code
+3-تغییر کانفیگ سایت 
+    <aspNetCore processPath="C:\Program Files\dotnet\dotnet.exe"
+        برای خطای   
+        0x80070002
+        که در رخدادهای سیستم بخش اپلیکیشن دیدم
+4-ایجاد لاگین برای یوزر در اس.کیو.ال.سرور به بانک مورد نظر
+    بخاطر هشداری
+    Login failed for user 'IIS APPPOOL\IM999MaxGood.com'. Reason: Failed to open the explicitly specified database 'IM999Max_DotNetCore'. [CLIENT: <local machine>]
+    که در رخدادهای سیستم بخش اپلیکیشن دیدم
+***مراحل انتشار بروی آی.پی استاتیک از ویندوز هوم و مودم دی.لینک**********
+1-set one ip for local host in modem and ip4 modem driver 
+2-port forwarding port 80 local ip and static ip from isp
+3-nat setting between local ip and static ip from isp
+4-firewall setting port 80 for tcp and local ip
+5-DMZ for local ip (for example 192.168.1.99)
+***قوانین کد نویسی********************************************************
+_پیغام اکسپسن:
+    نام کلاس.نام تابع : پیغام خطا
+    throw new Exception("UsersController.UserLogin: لاگین به خطا خورد")
+
+_فیلدهای خصوصی:
+    دو خط زیر بعد نام
+    __CurrentLang
+    
+_ثوابت:
+    چهار خط زیر بعد نام
+    ____NameConstant
+
+_فیلدهای غیر خصوصی:
+_نام توابع:
+    با حروف بزرگ ابتدای کلمه
+    FuncName
+
+_نام متغیرها:
+    اولین کلمه با حروف کوچک
+    varName
+
+_نام پارامترها
+    با یک خط زیر و اولین کلمه با حروف کوچک
+    _parName
