@@ -38,6 +38,7 @@ create login for IIS APPPOOL\IM999MaxBonum with vs asp core with sysadmin in sql
 *for run*****************
 error in Views\Users\Index.cshtml line 75 remove comment @*
 press ctrl+shift+b
+delete solution file .sln
 run dotnet clean in vscode powershell
 run dotnet publish -o C:\temp in vscode powershell
 press F5
