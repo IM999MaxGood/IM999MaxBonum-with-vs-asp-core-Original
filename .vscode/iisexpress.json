@@ -1,0 +1,6 @@
+{
+    "port": 9989,
+    "path": "c:/temp/",
+    "clr": "v4.0",
+    "protocol": "http"
+  }

@@ -1,0 +1,178 @@
+@using IM999MaxBonum;
+@using IM999MaxBonum.Models;
+
+@model IEnumerable<vPageGroup>
+
+@{
+    ViewData["FooterAddINCode"] += "<script src='/js/admin/page_groups/index.js' type='text/javascript'></script>";
+
+    var lang = ViewBag.CurrentLang;
+
+    ViewData["Site_Page_Group"] = Resource.GetData(lang.LangMark, "Site_Page_Group");
+    
+    ViewData["PageName"] = ViewData["Site_Page_Group"];
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    ViewData["HomePage"] = Resource.GetData(lang.LangMark, "HomePage");
+
+    ViewData["Pages"] = Resource.GetData(lang.LangMark, "Pages");
+    ViewData["Identity"] = Resource.GetData(lang.LangMark, "Identity");
+    ViewData["PageGroupName"] = Resource.GetData(lang.LangMark, "PageGroupName");
+    ViewData["LangName"] = Resource.GetData(lang.LangMark, "LangName");
+    ViewData["CanEdit"] = Resource.GetData(lang.LangMark, "CanEdit");
+    ViewData["IsActive"] = Resource.GetData(lang.LangMark, "IsActive");
+    ViewData["Commands"] = Resource.GetData(lang.LangMark, "Commands");
+    ViewData["New_Page_Group"] = Resource.GetData(lang.LangMark, "New_Page_Group");
+ 
+    ViewData["Is"] = Resource.GetData(lang.LangMark, "Have");
+    ViewData["Is_Not"] = Resource.GetData(lang.LangMark, "Have_Not");
+    ViewData["Yes"] = Resource.GetData(lang.LangMark, "Yes");
+    ViewData["No"] = Resource.GetData(lang.LangMark, "No");
+
+    ViewData["Edit"] = Resource.GetData(lang.LangMark, "Edit");
+    ViewData["Details"] = Resource.GetData(lang.LangMark, "Details");
+    ViewData["Delete"] = Resource.GetData(lang.LangMark, "Delete");
+
+    ViewData["Message_DeletePG"] = Resource.GetData(lang.LangMark, "Message_DeletePG");
+    ViewData["Waiting"] = Resource.GetData(lang.LangMark, "Waiting");
+
+    ViewData["NotExist"] = string.Format(Resource.GetData(lang.LangMark, "NotExist"), ViewData["Site_Page_Group"] );
+}
+
+<div id="dialogs">
+    @Html.Partial("Dialog", null, new ViewDataDictionary(this.ViewData) 
+                                            { { "id", "dialogWait" }, {"title", ""}, 
+                                            {"ShowClose", false}, {"Message", ViewData["Waiting"]} })
+</div>
+
+
+<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li><a href="/Admin/@(lang.LangMark)/">@ViewData["HomePage"]</a></li>
+    <li class="active">@ViewData["Site_Page_Group"]</li>
+</ul>
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+    @*
+    <h2><span class="fa fa-align-justify"></span>@ViewData["PageName"]</h2> *@
+    <h2><span class="fa fa-tasks"></span>@ViewData["PageName"]</h2>
+</div>
+<!-- END PAGE TITLE -->
+
+<!-- PAGE CONTENT -->
+<div class="container page-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a  href="/Admin/@(lang.LangMark)/PageGroups/Create" class="panel-collapse"><span class="fa fa-plus"></span> @ViewData["New_Page_Group"]</a></h3>
+
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+
+                    @if(Model == null || Model.Count() == 0 )
+                    {
+                        <div id="not-exist">@ViewData["NotExist"]</div>
+                    }else{
+                        <table class="table datatable">
+                            <thead>
+                                <tr>
+                                    <th>@ViewData["Identity"]</th>
+                                    <th>@ViewData["PageGroupName"]</th>
+                                    <th>@ViewData["LangName"]</th>
+                                    <th>@ViewData["CanEdit"]</th>
+                                    <th>@ViewData["IsActive"]</th>
+                                    <th>@ViewData["Commands"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PageGroupId)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PageGroupName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LangName)
+                                            </td>
+                                            <td>
+                                                @if (item.CanEdit) {
+                                                    <span class="fa fa-check"></span>
+                                                    @*Resource.Have*@ 
+                                                }
+                                                else
+                                                {
+                                                    <span class="fa fa-times"></span>
+                                                    @*Resource.Have_Not*@
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.IsActive == true)
+                                                {
+                                                    <span class="fa fa-check"></span>
+                                                    @*Resource.Yes*@
+                                                }
+                                                else
+                                                {
+                                                    <span class="fa fa-times"></span>
+                                                    @*Resource.No*@
+                                                }
+                                            </td>
+                                            <td>
+                                                <ul class="commands">
+                                                    @if (item.CanEdit)
+                                                    {
+                                                        <li><a href="/Admin/@(lang.LangMark)/PageGroups/Edit/@item.PageGroupId" title='@ViewData["Edit"] @ViewData["Site_Page_Group"]'><span class="fa fa-edit"></span></a></li>
+                                                    }
+                                                    @*
+                                                    <li><a href="/Admin/@(lang.LangMark)/PageGroups/Details/@item.PageGroupId" title='@ViewData["Details"] @ViewData["Site_Page_Group"]'><span class="fa fa-square-o"></span></a></li>
+                                                    *@
+                                                    @if (item.CanEdit)
+                                                    {
+                                                        <li onclick="DetelePageGroup(@item.PageGroupId, '@item.PageGroupName');"><a title='@ViewData["Delete"] @ViewData["Site_Page_Group"] & @ViewData["Pages"]'><span class="fa fa-minus"></span></a></li>
+                                                    }
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="div-hidden">
+ 
+    <form id="pagegroup-delete-form" action="/Admin/@(lang.LangMark)/PageGroups/Delete"
+        data-ajax="true" data-ajax-method="POST"
+        data-ajax-begin="onBeginDelPG" data-ajax-failure="onFailedDelPG" 
+        data-ajax-complete="" data-ajax-success="onSuccessDelPG"
+        >
+
+        <input type="hidden" id="hfDeletePGId" name="pageGroupId" value="0" />
+    </form>
+    
+</div>
+
+<script>
+    var __mgDeletePG = '@Html.Raw(ViewData["Message_DeletePG"])';
+
+</script>

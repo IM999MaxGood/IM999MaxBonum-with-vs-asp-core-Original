@@ -1,0 +1,89 @@
+body {
+    font-family: 'web_yekan', tahoma;
+    direction: rtl;
+}
+
+body{
+    margin-left: unset;
+    margin-right: 230px;
+}
+
+
+.site-icon, .site-mainmenu{
+    float: right;
+}
+
+nav.mainmenu{
+    left: unset;
+    right: 0;
+}
+
+#menuToggle {
+    float: left;
+    left: 10px;
+    right: unset;
+}
+
+#profile-user ul{
+    text-align: right;
+}
+
+.panel-controls-{
+    right: unset;
+    left: 20px;
+    position: absolute;
+}
+
+
+#profile-user ul a{
+    padding-left: unset;
+    padding-right: 70px;
+}
+
+nav ul ul a{
+    padding-left: unset;
+    padding-right: 70px;
+}
+
+.page-title{
+    margin-left: unset;
+    margin-right: 15px;
+}
+
+.panel-controls{
+    float: left;
+}
+
+.panel-controls li {
+    float: left;
+}
+
+.commands{
+    float: right;
+    padding-right: unset;
+}
+
+.commands li {
+    float: left;
+}
+
+.mce-container-body{
+    direction: ltr;
+}
+
+.mce-tabs, .mce-tab
+{
+    height: 30px !important;
+}
+
+
+
+@media all and (max-width : 949px){/*965px){/*949px){*/
+    body{
+        margin-right: unset;
+    }
+
+    nav { 
+        left: -300px;
+    }        
+}

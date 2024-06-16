@@ -1,0 +1,39 @@
+@{
+    var lang = ViewBag.CurrentLang;
+    ViewData["Close"] = Resource.GetData(lang.LangMark, "Close");
+    ViewData["OK"] = Resource.GetData(lang.LangMark, "OK");
+}
+
+<div id="@ViewBag.Id" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            @if (ViewBag.ShowTitle != null && ViewBag.ShowTitle)
+            {
+                @:<div class="modal-header">
+                    if (ViewBag.ShowClose != null && ViewBag.ShowClose)
+                    {
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                            <span class="sr-only">@ViewData["Close"]</span>
+                        </button>
+                    }
+                    @:<h4 class="modal-title">@ViewBag.Title</h4>
+                @:</div>
+            }
+            <div class="modal-body">
+                <div id="waiting-content">
+                    <p>@ViewBag.Message</p>
+                    <img id="waitingGif" src="~/img/loading.gif" />
+                </div>
+            </div>
+            @if (ViewBag.ShowOKClose != null && ViewBag.ShowOKClose)
+            {
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">@ViewData["Close"]</button>
+                    <button type="button" class="btn btn-primary">@ViewData["OK"]</button>
+                </div>
+            }
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+

@@ -1,0 +1,24 @@
+﻿@using IM999MaxBonum.Classes;
+
+@{
+    string menuName = "MainMenu";
+
+    var lang = ViewBag.CurrentLang;
+    bool isRtl = lang.Direction.Trim().ToLower() == "ltr" ? false : true;
+    string langMark = lang.LangMark;
+}
+
+<nav class="mainmenu">
+
+    <ul>
+        <li id="close-menu"><a class="fa fa-remove"></a></li>
+            
+        @{
+            string menu = Menus.GetMenu(menuName, langMark, 3);    
+        }
+
+        @Html.Raw(menu)
+                
+    </ul>
+</nav>
+

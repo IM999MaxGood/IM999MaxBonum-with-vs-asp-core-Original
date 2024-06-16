@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu>
+<!--
+        //در این سند نباید دو منو با نام یکسان باشد 
+        //چون در انتخاب زیر منوها از نام منو استفاده میشود
+        //پدر زیر منوها از سطح اول به بعد هم نباید آدرس لینک داشته باشند
+-->
+    <item name="Home Page" url="/#HOME" >
+        <item name="Lorem ipsum1-1" url="#"/>
+        <item name="Lorem ipsum1-2" url="">
+            <item name="Lorem ipsum1-2-1" url="#"/>
+            <item name="Lorem ipsum1-2-2" url="#"/>
+            <item name="Lorem ipsum1-2-3" url="#"/>
+        </item>
+        <item name="Lorem ipsum1-3" url="#"/>
+    </item>
+    <item name="About Us" url="/#ABOUT" />
+    <item name="Contact Us" url="/#CONTACT-US" />
+
+    <item name="Address" url="/#MAP" >
+        <item name="Lorem ipsum2-1" url="#"/>
+        <item name="Lorem ipsum2-2" url="">
+            <item name="Lorem ipsum2-2-1" url="#"/>
+            <item name="Lorem ipsum2-2-2" url="#"/>
+            <item name="Lorem ipsum2-2-3" url="#"/>
+        </item>
+        <item name="Lorem ipsum2-3" url="#"/>
+    </item>
+</menu>

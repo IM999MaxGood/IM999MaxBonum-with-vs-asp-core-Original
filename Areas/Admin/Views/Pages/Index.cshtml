@@ -1,0 +1,176 @@
+@using IM999MaxBonum;
+@using IM999MaxBonum.Models;
+
+@model IEnumerable<vPage>
+
+@{
+    ViewData["FooterAddINCode"] += "<script src='/js/admin/pages/index.js' type='text/javascript'></script>";
+
+    var lang = ViewBag.CurrentLang;
+
+    ViewData["Pages"] = Resource.GetData(lang.LangMark, "Pages");
+    ViewData["Page"] = Resource.GetData(lang.LangMark, "Page");
+    
+    ViewData["PageName"] = ViewData["Pages"];
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    ViewData["HomePage"] = Resource.GetData(lang.LangMark, "HomePage");
+    ViewData["New_Page"] = Resource.GetData(lang.LangMark, "New_Page");
+    
+    ViewData["Identity"] = Resource.GetData(lang.LangMark, "Identity");
+    ViewData["Page_Name"] = Resource.GetData(lang.LangMark, "Page_Name");
+    ViewData["LangName"] = Resource.GetData(lang.LangMark, "LangName");
+    ViewData["CanDelete"] = Resource.GetData(lang.LangMark, "CanDelete");
+    ViewData["PageGroup"] = Resource.GetData(lang.LangMark, "PageGroup");
+    ViewData["Commands"] = Resource.GetData(lang.LangMark, "Commands");
+
+    ViewData["New_Page_Group"] = Resource.GetData(lang.LangMark, "New_Page_Group");
+ 
+    ViewData["Yes"] = Resource.GetData(lang.LangMark, "Yes");
+    ViewData["No"] = Resource.GetData(lang.LangMark, "No");
+
+    ViewData["Edit"] = Resource.GetData(lang.LangMark, "Edit");
+    ViewData["Show"] = Resource.GetData(lang.LangMark, "Show");
+    ViewData["Details"] = Resource.GetData(lang.LangMark, "Details");
+    ViewData["Delete"] = Resource.GetData(lang.LangMark, "Delete");
+    ViewData["Message_DeleteP"] =  Resource.GetData(lang.LangMark, "Message_DeleteP");
+
+    ViewData["Waiting"] = Resource.GetData(lang.LangMark, "Waiting");
+
+    ViewData["NotExist"] = string.Format(Resource.GetData(lang.LangMark, "NotExist"), ViewData["Page"] );
+}
+
+<div id="dialogs">
+    @Html.Partial("Dialog", null, new ViewDataDictionary(this.ViewData) 
+                                            { { "id", "dialogWait" }, {"title", ""}, 
+                                            {"ShowClose", false}, {"Message", ViewData["Waiting"]} })
+</div>
+
+
+<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li><a href="/Admin/@(lang.LangMark)/">@ViewData["HomePage"]</a></li>
+    <li class="active">@ViewData["Pages"]</li>
+</ul>
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+    @*
+    <h2><span class="fa fa-align-justify"></span>@ViewData["PageName"]</h2> *@
+    <h2><span class="fa fa-tasks"></span>@ViewData["PageName"]</h2>
+</div>
+<!-- END PAGE TITLE -->
+
+<!-- PAGE CONTENT -->
+<div class="container page-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <!--
+                    <h3 class="panel-title">
+                        <a href="/Admin/@(lang.LangMark)/Pages/Create" class="panel-collapse"><span class="fa fa-plus"></span> @ViewData["New_Page"]</a>
+                    </h3>
+                    -->
+
+                    @Html.Raw(ViewData["DropDown_Languages"])
+
+                    <div class="panel-controls-">
+                        <ul class="panel-controls">
+                            <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                            <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                            <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                            <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    @if(Model == null || Model.Count() == 0 )
+                    {
+                        <div id="not-exist">@ViewData["NotExist"]</div>
+                    }else{
+                        <table class="table datatable">
+                            <thead>
+                                <tr>
+                                    <th>@ViewData["Identity"]</th>
+                                    <th>@ViewData["Page_Name"]</th>
+                                    <th>@ViewData["LangName"]</th>
+                                    <th>@ViewData["CanDelete"]</th>
+                                    <th>@ViewData["PageGroup"]</th>
+                                    <th>@ViewData["Commands"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PageId)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PageName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LangName)
+                                            </td>
+                                            <td>
+                                                @if (item.CanDelete) {
+                                                    <span class="fa fa-check"></span>
+                                                    @*Resource.Have*@ 
+                                                }
+                                                else
+                                                {
+                                                    <span class="fa fa-times"></span>
+                                                    @*Resource.Have_Not*@
+                                                }
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.PageGroupName)
+                                            </td>
+                                            <td>
+                                                <ul class="commands">
+                                                    <li><a href="/Admin/@(lang.LangMark)/Pages/Edit?PageId=@item.PageId" title='@ViewData["Edit"] @ViewData["Page"]'><span class="fa fa-edit"></span></a></li>
+                                                    @*
+                                                    <li><a href="/Admin/@(lang.LangMark)/Pages/Details/@item.PageId" title='@ViewData["Details"] @ViewData["Page"]'><span class="fa fa-square-o"></span></a></li>
+                                                    *@
+                                                    @if (item.CanDelete)
+                                                    {
+                                                        <li onclick="DetelePage(@item.PageId, '@item.PageName');"><a title='@ViewData["Delete"] @ViewData["Page"]'><span class="fa fa-minus"></span></a></li>
+                                                    }
+                                                    <li><a href="/@(item.LangMark)/Page/Detail?id=@item.PageId" title='@ViewData["Show"] @ViewData["Page"]' target="_blank"><span class="fa fa-square-o"></span></a></li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="div-hidden">
+ 
+    <form id="page-delete-form" action="/Admin/@(lang.LangMark)/Pages/Delete"
+        data-ajax="true" data-ajax-method="POST"
+        data-ajax-begin="onBeginDelP" data-ajax-failure="onFailedDelP" 
+        data-ajax-complete="" data-ajax-success="onSuccessDelP"
+        >
+
+        <input type="hidden" id="hfDeletePId" name="pageId" value="0" />
+    </form>
+    
+</div>
+
+<script>
+    var __mgDeleteP = '@Html.Raw(ViewData["Message_DeleteP"])';
+
+</script>

@@ -1,0 +1,119 @@
+@using IM999MaxBonum;
+@using IM999MaxBonum.Models;
+
+@model vPageGroup
+
+@{
+    ViewData["FooterAddINCode"] += "<script src='/js/admin/page_groups/edit.js' type='text/javascript'></script>";
+
+    var lang = ViewBag.CurrentLang;
+    bool isRtl = lang.Direction.Trim().ToLower() == "ltr" ? false : true;
+
+    string pageGuid = Guid.NewGuid().ToString();
+
+    ViewData["Site_Page_Group"] = Resource.GetData(lang.LangMark, "Site_Page_Group");
+    ViewData["Edit"] = Resource.GetData(lang.LangMark, "Edit");
+    
+    ViewData["PageName"] = ViewData["Edit"] + " " + ViewData["Site_Page_Group"];
+    
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    ViewData["HomePage"] = Resource.GetData(lang.LangMark, "HomePage");
+
+    ViewData["PageGroupName"] = Resource.GetData(lang.LangMark, "PageGroupName");
+    ViewData["Cancel"] = Resource.GetData(lang.LangMark, "Cancel");
+    ViewData["Language"] = Resource.GetData(lang.LangMark, "Language");
+    ViewData["Submiting"] = Resource.GetData(lang.LangMark, "Submiting");
+    ViewData["Reset"] = Resource.GetData(lang.LangMark, "Reset");
+
+    ViewData["Waiting"]  = Resource.GetData(lang.LangMark, "Waiting");
+
+    ViewData["PageGroupName_Val_Req"] = string.Format( Resource.GetData(lang.LangMark, "Val_Req"), ViewData["PageGroupName"]);    
+}
+
+<div id="dialogs">
+    @Html.Partial("Dialog", null, new ViewDataDictionary(this.ViewData) 
+                                            { { "id", "dialogWait" }, {"title", ""}, 
+                                            {"ShowClose", false}, {"Message", ViewData["Waiting"]} })
+</div>
+
+<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li><a href="/Admin/@(lang.LangMark)/">@ViewData["HomePage"]</a></li>
+    <li><a href="/Admin/@(lang.LangMark)/PageGroups/">@ViewData["Site_Page_Group"]</a></li>
+    <li class="active">@ViewData["PageName"]</li>
+</ul>
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+    @*
+    <h2><span class="fa fa-align-justify"></span>@ViewData["PageName"]</h2> *@
+    <h2><span class="fa fa-tasks"></span>@ViewData["PageName"]</h2>
+</div>
+<!-- END PAGE TITLE -->
+
+<!-- PAGE CONTENT -->
+<div class="container page-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a><span class="fa fa-edit"></span> @ViewData["PageName"]</a></h3>
+
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div id="page-group-msg" class="alert alert-danger" style="display:none;" role="alert"></div>
+                    </div>
+
+                    <form id="page-group-form" action="/Admin/@(lang.LangMark)/PageGroups/DoEdit"
+                        @*
+                         asp-action="DoEdit" asp-controller="PageGroups" 
+                        asp-route-lang="@lang.LangMark" asp-route-area="Admin"*@
+                        data-ajax="true" data-ajax-method="POST"
+                        data-ajax-begin="onBeginEdit" data-ajax-failure="onFailedEdit" 
+                        data-ajax-complete="" data-ajax-success="onSuccessEdit"
+                        >
+
+                            <input type="text" name="PageGroupName" value="@Model.PageGroupName" placeholder='@ViewData["PageGroupName"]' class="form-control"/>
+                            
+                            @*برای قراردادن دراپ.داون بوت.استرپی*@
+                            @Html.Raw( ViewData["DropDown_Languages"])
+
+                            <!--
+                            <input name="guid" type="hidden" value="@pageGuid"/>
+                            -->
+
+                            <input name="pageGroupId" type="hidden" value="@Model.PageGroupId"/>
+                            <input name="isActive" type="hidden" value="@(Model.IsActive?1:0)"/>
+
+                            <br/>
+
+                            <div class="form-button"> 
+                                <input type="submit"  id="edit-pg-btn" class="btn btn-primary" value='@ViewData["Edit"]'/>
+                                <button type="button" id="reset-form" class="btn btn-danger">@ViewData["Reset"]</button>
+                                <button type="button" id="back-pg-btn" class="btn btn-dark">@ViewData["Cancel"]</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var __lang = '@Html.Raw(ViewData["Language"])';
+    var __val_pageGroupName = '@Html.Raw(ViewData["PageGroupName_Val_Req"])';
+    var __edit = '@Html.Raw(ViewData["Edit"])';
+    var __submiting = '@Html.Raw(ViewData["Submiting"])';
+    var __langMark = '@Html.Raw(lang.LangMark)';
+</script>

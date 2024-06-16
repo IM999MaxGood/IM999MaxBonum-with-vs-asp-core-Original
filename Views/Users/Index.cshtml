@@ -1,0 +1,243 @@
+@using IM999MaxBonum.Models;
+@using IM999MaxBonum.Classes;
+
+@model User
+
+@{
+    ViewData["HeaderAddINCode"] += "<link rel='stylesheet' href='/css/users/style.css' type='text/css'>";
+    ViewData["FooterAddINCode"] += "<script src='/js/users/script.js' type='text/javascript'></script>";
+    Layout = "~/Views/Shared/_LayoutOnlyHtmlWithSimplePlugin.cshtml";
+    var lang = ViewBag.CurrentLang;
+    string guids = ViewBag.GUIDS;
+    bool isRtl = lang.Direction.Trim().ToLower() == "ltr" ? false : true;
+
+    string _prefix = Guid.NewGuid().ToString();
+
+    ViewData["Login"] = Resource.GetData(lang.LangMark, "Login");
+    ViewData["Email"] = Resource.GetData(lang.LangMark, "Email");
+    ViewData["UserName"] = Resource.GetData(lang.LangMark, "UserName");
+    ViewData["Password"] = Resource.GetData(lang.LangMark, "Password");
+    ViewData["keepme_logined"] = Resource.GetData(lang.LangMark, "keepme_logined");
+    ViewData["Captcha"] = Resource.GetData(lang.LangMark, "Captcha");
+    ViewData["Register"] = Resource.GetData(lang.LangMark, "Register");
+    ViewData["Forget"] = Resource.GetData(lang.LangMark, "Forget");
+
+    ViewData["Reset"] = Resource.GetData(lang.LangMark, "Reset");
+    ViewData["Back_HomePage"] = Resource.GetData(lang.LangMark, "Back_HomePage");
+    ViewData["CatpchaNew"] = Resource.GetData(lang.LangMark, "CatpchaNew");
+
+    ViewData["Val_Username"] = Resource.GetData(lang.LangMark, "Val_Username");
+    ViewData["Val_Email"] = Resource.GetData(lang.LangMark, "Val_Email");
+    ViewData["Val_Password"] = Resource.GetData(lang.LangMark, "Val_Password");
+    ViewData["Val_Captcha"] = Resource.GetData(lang.LangMark, "Val_Captcha");
+
+    ViewData["Welcome"] = Resource.GetData(lang.LangMark, "Welcome");
+    ViewData["Waiting"] = Resource.GetData(lang.LangMark, "Waiting");
+    ViewData["Submiting"] = Resource.GetData(lang.LangMark, "Submiting");
+}
+
+
+<div id="dialogs">
+    @*
+    @{Html.RenderAction("Dialog", "General", new { id = "dialogWait", title = "title", ShowClose = false });}
+    *@
+    @Html.Partial("Dialog", null, new ViewDataDictionary(this.ViewData) 
+                                            { { "id", "dialogWait" }, {"title", ""}, 
+                                            {"ShowClose", false}, {"Message", ViewData["Waiting"]} })
+@*
+    @if (ViewBag.CurrentUser != null)
+    {
+        Html.RenderAction("Logout", "Users");
+    }
+*@
+</div>
+
+<section id="section-panel">
+    <div class="container panel panel-default panel-login center-height">
+        <div class="panel-body">
+            <div class="row">
+                <div class="login-title">
+                    <h1>@ViewData["Login"]</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="login-msg" class="alert alert-danger" style="display:none;" role="alert"></div>
+            </div>
+
+            <div class="row">
+                <div class="login-form">
+
+                    <form id="login-form" asp-controller="Users" asp-action="UserLogin" 
+                        data-ajax="true" data-ajax-method="POST"
+                        data-ajax-begin="onBeginLogin" data-ajax-failure="onFailedLogin" 
+                        data-ajax-complete="" data-ajax-success="onSuccessLogin" 
+                        >
+
+                            <input asp-for="Email" placeholder='@ViewData["Email"]' class="form-control"/>
+                            Or 
+                            <input asp-for="UserName" placeholder='@ViewData["UserName"]' class="form-control"/> 
+                            <input asp-for="Password" type="password" placeholder= '@ViewData["Password"]' class="form-control"/> 
+
+                            <div class="checkbox">
+                                <label>
+                                    @Html.CheckBox("keepMe", new { @checked = false, @class = "checkbox form-control"}) @ViewData["keepme_logined"]
+                                </label>
+                            </div>
+                            
+                            @*
+                            <img id="CaptchaImage1" alt=" captcha" src='@Url.Action("CaptchaImage", "General", new { prefix = _prefix})' data-prefix="@_prefix" />
+                            *@
+                            <img id="CaptchaImage1" alt=" captcha" src='@Url.Action("CaptchaImage", "General", new {guids= guids, prefix = _prefix})' data-prefix="@_prefix" />
+                            <a id="retry_captcha_1" class="retry-captcha" title='@ViewData["CatpchaNew"]'><i class="fa fa-refresh"></i>@ViewData["CatpchaNew"]</a>
+                            @*
+                            Html.TextBox("captcha", null, new { id = "CaptchaInput1", @class = "form-control CaptchaImage", placeholder = ViewData["Captcha"]})
+                            *@
+                            <input id="CaptchaInput1" name="captcha" type="text" placeholder='@ViewData["Captcha"]' class="form-control"/> 
+
+                            <input name="guid" type="hidden" value="@_prefix"/>
+
+                            <div class="form-button"> 
+                                <input type="submit"  id="form-login-btn" class="btn btn-primary" value='@ViewData["Login"]'/>
+                                <button type="button" class="btn btn-success">@ViewData["Register"]</button>
+                                <button type="button" class="btn btn-dark">@ViewData["Forget"]</button>
+                                <button type="button" id="reset-form" class="btn btn-danger">@ViewData["Reset"]</button>
+                                <button type="button" id="back-homepage" class="btn btn-danger">@ViewData["Back_HomePage"]</button>
+                            </div>
+                            <!--
+                            <div id="Results"></div>-->
+                    </form>
+
+                </div><!--/login-form-->
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+    var __langMark = '@lang.LangMark';
+    var __val_username = '@Html.Raw(ViewData["Val_Username"])';
+    var __val_email = '@Html.Raw(ViewData["Val_Email"])';
+    var __val_password = '@Html.Raw(ViewData["Val_Password"])';
+    var __val_captcha = '@Html.Raw(ViewData["Val_Captcha"])';
+    var __guids = '@guids';
+    var __welcome = '@Html.Raw(ViewData["Welcome"])'; 
+    var __submiting = '@Html.Raw(ViewData["Submiting"])';
+    var __login = '@Html.Raw(ViewData["Login"])';
+</script>
+
+@*
+<script type="text/javascript">
+/*
+var results = $("#Results");
+var onBegin = function(){
+    results.html("<img src=\"/images/ajax-loader.gif\" alt=\"Loading\" />");
+};
+
+var onComplete = function(){
+    results.html("");
+};
+
+var onSuccess = function(context){
+    alert(context);
+};
+
+var onFailed = function(context){
+    alert("Failed");
+};
+
+
+
+
+
+    addLoadEvent(function () {
+        addJsEnd("/Theme/js/validate/jquery.validate.min.js", true);
+        addJsEnd("/Theme/js/validate/jquery.validate.unobtrusive.min.js", true);
+    });
+
+    addLoadEvent(function () {
+        //LoginClearAll();
+        $('#retry_captcha_1').click(function () { reLoadCaptcha('CaptchaImage', 1); return false; });
+
+        
+        $('#login-form').submit(function (evt) {
+            evt.preventDefault();
+            var $form = $(this);
+
+            $("#login-msg-main").text("");
+            $('#login-msg-main').hide();
+            $form.valid();
+
+
+            if ($('#UserName').val().trim() == '' & $('#email-input').val().trim() == '')
+            {
+                $("#login-msg-main").text('@Resource.UserName @Resource.OR @Resource.Email');
+                $('#login-msg-main').show();
+
+                return false;
+            }
+
+            if ($('#CaptchaInput1').val().trim() == '') {
+                $("#login-msg-main").text('@Resource.Captcha');
+                $('#login-msg-main').show();
+
+                return false;
+            }
+            return true;
+
+            //if ($form.valid()) {
+            //    $("#login-msg-main").text("");
+            //    $('#login-msg-main').hide();
+            //    return true;
+            //} else {
+            //    return false;
+            //}
+        });
+
+    });
+
+    function reLoadCaptcha(imgId, perfix) {
+        var myImageElement = document.getElementById(imgId + perfix.toString());
+        myImageElement.src = '/General/CaptchaImage?prefix=' + perfix + '&random=' + Math.random();
+    }
+
+    function LoginClearAll() {
+        $('#login-msg-main').text("");
+        $('#login-msg-main').hide();
+        resetForm($('#login-form'));
+
+        alert($('input, textarea'));
+        $('input, textarea').placeholder({ customClass: 'my-placeholder' });
+
+        reLoadCaptcha("CaptchaImage", 1);
+    }
+
+    function loginSuccess(event) {
+        if (event.res.toString().toLowerCase().trim() == "ok") {
+            alert("@Resource.Welcome");
+            //window.location = event.msg;
+            location.reload(true);
+            return;
+        } else {
+            reLoadCaptcha("CaptchaImage", 1);
+            $('#login-msg-main').text(event.msg);
+            $('#login-msg-main').show("slow");
+        }
+        $('#dialogWait').modal('hide');
+    }
+
+    function begin() {
+        $('#dialogWait').modal({ keyboard: false, backdrop: 'static' });
+        $('#login-msg-main').hide();
+    }
+
+    function failed(event) {
+        $('#dialogWait').modal('hide');
+        $('#login-msg-main').text(event);
+        $('#login-msg-main').show("slow");
+    }
+*/
+</script>
+
+*@

@@ -1,0 +1,159 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    
+    <!--im999
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    -->
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+
+    <!--im999 for PagesController(IHostingEnvironment environment) : BaseController(environment)-->
+    <LangVersion>12.0</LangVersion>
+
+    <!-- 
+    <AspNetCoreModuleName>AspNetCoreModule</AspNetCoreModuleName>
+    <AspNetCoreModuleName>AspNetCoreModuleV2</AspNetCoreModuleName>
+    -->
+
+    <!--im999
+    <EnvironmentName>Staging</EnvironmentName>
+    <PublishWithAspNetCoreTargetManifest>False</PublishWithAspNetCoreTargetManifest>
+    -->
+
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="CoreCompat.System.Drawing.v2" Version="5.2.0-preview1-r131" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="SQL\func\" />
+    <Folder Include="SQL\other\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\comment\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\dialog\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\display\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\edit\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\fold\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\hint\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\lint\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\merge\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\mode\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\runmode\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\scroll\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\search\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\selection\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\tern\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\addon\wrap\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\bin\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\demo\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\doc\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\keymap\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\lib\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\apl\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\asterisk\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\clike\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\clojure\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\cobol\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\coffeescript\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\commonlisp\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\css\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\cypher\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\diff\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\django\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\dockerfile\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\dtd\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\dylan\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\d\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\ecl\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\eiffel\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\erlang\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\fortran\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\gas\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\gfm\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\gherkin\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\go\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\groovy\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\haml\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\haskell\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\haxe\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\htmlembedded\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\htmlmixed\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\http\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\idl\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\jade\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\javascript\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\jinja2\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\julia\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\kotlin\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\livescript\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\lua\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\markdown\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\mirc\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\mllike\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\modelica\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\nginx\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\ntriples\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\octave\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\pascal\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\pegjs\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\perl\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\php\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\pig\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\properties\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\puppet\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\python\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\q\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\rpm\changes\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\rst\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\ruby\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\rust\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\r\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\sass\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\scheme\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\shell\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\sieve\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\slim\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\smalltalk\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\smartymixed\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\smarty\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\solr\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\sparql\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\sql\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\stex\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\tcl\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\textile\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\tiddlywiki\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\tiki\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\toml\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\tornado\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\turtle\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\vbscript\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\vb\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\velocity\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\verilog\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\xml\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\xquery\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\yaml\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\mode\z80\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\test\lint\" />
+    <Folder Include="wwwroot\plugin\tinymce\plugins\codemirror\codemirror-4.8\theme\" />
+    <Folder Include="wwwroot\UserFiles\Pages\2c49d65a-168b-4372-9876-8d969db6df92\" />
+    <Folder Include="wwwroot\UserFiles\temp\" />
+
+    <Content Include="Menus\*.xml"> 
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory> 
+    </Content> 
+    <Content Include="Resources\*.resx"> 
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory> 
+    </Content> 
+
+  </ItemGroup>
+
+</Project>

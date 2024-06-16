@@ -1,0 +1,179 @@
+﻿@using IM999MaxBonum.Models;
+@using IM999MaxBonum.Classes;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var lang = ViewBag.CurrentLang;
+    bool isRtl = lang.Direction.Trim().ToLower() == "ltr" ? false : true;
+
+    bool ShowSlider = (bool)ViewData["ShowSlider"];
+
+    ViewData["Title"] = ViewData["PageName"];
+
+    ViewData["About_Us"] = Resource.GetData(lang.LangMark, "About_Us");
+    ViewData["Success_Not"] = Resource.GetData(lang.LangMark, "Success_Not");
+    ViewData["about_us_p1"] = Resource.GetData(lang.LangMark, "about_us_p1");
+    ViewData["about_us_p2"] = Resource.GetData(lang.LangMark, "about_us_p2");
+    ViewData["about_us_p3"] = Resource.GetData(lang.LangMark, "about_us_p3");
+    ViewData["about_us_p4"] = Resource.GetData(lang.LangMark, "about_us_p4");
+    ViewData["about_us_p5"] = Resource.GetData(lang.LangMark, "about_us_p5");
+    ViewData["about_us_p6"] = Resource.GetData(lang.LangMark, "about_us_p6");
+
+    ViewData["Contact_Us"] = Resource.GetData(lang.LangMark, "Contact_Us");
+    ViewData["Contact_Us_txt"] = Resource.GetData(lang.LangMark, "Contact_Us_txt");
+
+
+    ViewData["YourName"] = Resource.GetData(lang.LangMark, "YourName");
+    ViewData["YourEmail"] = Resource.GetData(lang.LangMark, "YourEmail");
+    ViewData["YourMobile"] = Resource.GetData(lang.LangMark, "YourMobile");
+    ViewData["YourMessage"] = Resource.GetData(lang.LangMark, "YourMessage"); 
+    ViewData["Find_Us_way"] =  Resource.GetData(lang.LangMark, "Find_Us_way"); 
+    ViewData["Send"] = Resource.GetData(lang.LangMark, "Send");
+    ViewData["Or"] = Resource.GetData(lang.LangMark, "Or");
+    ViewData["980000000000"] = Resource.GetData(lang.LangMark, "980000000000");
+    ViewData["Google_Map_Add"] = Resource.GetData(lang.LangMark, "Google_Map_Add");
+    ViewData["Titr2"] = Resource.GetData(lang.LangMark, "Titr2");
+    ViewData["Address_Text"] = Resource.GetData(lang.LangMark, "Address_Text");
+}
+
+<section id="ABOUT" class="about_area">
+    <div class="container">
+        <div class="row section-title-row">
+            <div class="wow fadeInUp col-md-12">
+                <div class="section-title">
+                    <h1>@ViewData["About_Us"]</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="wow fadeInUp col-md-4">
+                <p class="about_us_p">@ViewData["about_us_p1"]</p>
+
+                <p class="about_us_p">@ViewData["about_us_p2"]</p>
+            </div>
+            <div class="wow fadeInUp col-md-4">
+                <p class="about_us_p">@ViewData["about_us_p3"]</p>
+
+                <p class="about_us_p">@ViewData["about_us_p4"]</p>
+            </div>
+            <div class="wow fadeInUp col-md-4">
+                <p class="about_us_p">@ViewData["about_us_p5"]</p>
+
+                <p class="about_us_p">@ViewData["about_us_p6"]</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row footer-title-row">
+            <div class="wow fadeInUp col-md-12">
+                <div class="footer-title-line-up">
+                </div>
+                <div class="footer-title">
+                    <h2>@ViewData["Success_Not"] ...</h2>
+                </div>
+                <div class="footer-title-line-down">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="CONTACT-US">
+    <div class="container">
+        <div class="row section-title-row">
+            <div class="wow fadeInUp col-md-12">
+                <div class="section-title">
+                    <h1>@ViewData["Contact_Us"]</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="contact-section" class="col-md-6">
+                <div class="col-xs-12">
+                    <h6>@ViewData["Contact_Us_txt"]</h6>
+                    <form action="#" id="contact_form" method="post">
+                        <div class="form-inline">
+                            <div class="form-group col-sm-12">
+                                <input class="form-control text-box single-line" id="contactInputName" name="Name" placeholder='@ViewData["YourName"]' value="" type="text">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <input class="form-control text-box single-line" id="contactInputEmail" name="Email" placeholder='@ViewData["YourEmail"]' value="" type="text">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <input class="form-control text-box single-line" id="contactInputTel" name="Mobile" placeholder='@ViewData["YourMobile"]' value="" type="text">
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <textarea class="form-control" cols="20" id="contactInputMessage" name="Message" placeholder='@ViewData["YourMessage"]' rows="2"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group col-xs-12">
+                            <!--
+                            <div id="contact_msg">
+                                <div id="contact_msg_success" class="alert alert-success success" role="alert" style="display:none;">
+                                    پیغام شما با موفقیت ارسال شد.
+                                </div>
+                                <div id="contact_msg_fail" class="alert alert-danger error" role="alert" style="display:none;">
+                                    متاسفانه در ارسال پیغام شد مشکل پیش آمد.
+                                </div>
+                            </div>
+                            -->
+                        </div>
+                        <div class="form-group col-sm-12">
+                            <input id="send_message_btn" class="btn btn-lg contact-btn" value='@ViewData["Send"]'  type="button">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="contact-or">
+                        <p>@ViewData["Or"]</p>
+                    </div>
+                    <div class="icon-text">
+                        <span>@ViewData["ّFind_Us_way"]</span>
+                    </div>
+                    <div class="icon-row col-xs-12">
+                        <div class="col-sm-6">
+                            <a href="mailto:info@im999max.com"><i class="fa fa-envelope"></i><span>Info@IM999Max.com</span></a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="tel:+980000000000"><i class="fa fa-phone"></i><span class="phone-number-or"><p>+@ViewData["980000000000"]</p></span></a>
+                        </div>
+                    </div>
+                    <div class="icon-row col-xs-12">
+                        <div class="col-sm-6">
+                            <a href="http://telegram.me/IM999Max.com" target="_blank"><i class="fa fa-telegram"></i><span>Telegram.me/IM999Max.com</span></a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="https://www.instagram.com/IM999Max.com/" target="_blank"><i class="fa fa-instagram"></i><span>Instagram.com/IM999Max.com</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="instaphotos" class="col-md-6"></div>
+        </div>
+    </div>
+</section>
+
+
+<script type="text/javascript" asp-append-version="true">
+    titr2 = '@ViewData["Titr2"]';
+    address_Text = '@ViewData["Address_Text"]';
+    google_Map_Add = '@ViewData["Google_Map_Add"]';
+</script>
+
+
+<section id="MAP">
+    <div class="container">
+        <div class="row">
+            <div class="wow fadeInUp">
+                <div id="google-map"></div>
+            </div>
+        </div>
+    </div>
+</section>
+

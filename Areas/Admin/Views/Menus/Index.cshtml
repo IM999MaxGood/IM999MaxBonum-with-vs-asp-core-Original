@@ -1,0 +1,175 @@
+@using IM999MaxBonum;
+@using IM999MaxBonum.Models;
+
+@model IEnumerable<vMenu>
+
+@{
+    ViewData["FooterAddINCode"] += "<script src='/js/admin/menus/index.js' type='text/javascript'></script>";
+
+    var lang = ViewBag.CurrentLang;
+
+    ViewData["Menus"] = Resource.GetData(lang.LangMark, "Menus");
+    ViewData["Menu"] = Resource.GetData(lang.LangMark, "Menu");
+    
+    ViewData["PageName"] = ViewData["Menus"];
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    ViewData["HomePage"] = Resource.GetData(lang.LangMark, "HomePage");
+    ViewData["NewMenu"] = Resource.GetData(lang.LangMark, "NewMenu");
+    
+    ViewData["Identity"] = Resource.GetData(lang.LangMark, "Identity");
+    ViewData["Menu_Name"] = Resource.GetData(lang.LangMark, "Menu_Name");
+    ViewData["LangName"] = Resource.GetData(lang.LangMark, "LangName");
+    ViewData["CanEdit"] = Resource.GetData(lang.LangMark, "CanEdit");
+    ViewData["IsMainMenu"] = Resource.GetData(lang.LangMark, "IsMainMenu");
+
+    ViewData["Yes"] = Resource.GetData(lang.LangMark, "Yes");
+    ViewData["No"] = Resource.GetData(lang.LangMark, "No");
+
+    ViewData["Edit"] = Resource.GetData(lang.LangMark, "Edit");
+    ViewData["Details"] = Resource.GetData(lang.LangMark, "Details");
+    ViewData["Delete"] = Resource.GetData(lang.LangMark, "Delete");
+    ViewData["Message_DeleteMenu"] =  Resource.GetData(lang.LangMark, "Message_DeleteMenu");
+
+    ViewData["Waiting"] = Resource.GetData(lang.LangMark, "Waiting");
+
+    ViewData["NotExist"] = string.Format(Resource.GetData(lang.LangMark, "NotExist"), ViewData["Menu"] );
+}
+
+<div id="dialogs">
+    @Html.Partial("Dialog", null, new ViewDataDictionary(this.ViewData) 
+                                            { { "id", "dialogWait" }, {"title", ""}, 
+                                            {"ShowClose", false}, {"Message", ViewData["Waiting"]} })
+</div>
+
+
+<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li><a href="/Admin/@(lang.LangMark)/">@ViewData["HomePage"]</a></li>
+    <li class="active">@ViewData["Menus"]</li>
+</ul>
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+    @*
+    <h2><span class="fa fa-align-justify"></span>@ViewData["PageName"]</h2> *@
+    <h2><span class="fa fa-tasks"></span>@ViewData["PageName"]</h2>
+</div>
+<!-- END PAGE TITLE -->
+
+<!-- PAGE CONTENT -->
+<div class="container page-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <a href="/Admin/@(lang.LangMark)/Menus/Create" class="panel-collapse"><span class="fa fa-plus"></span> @ViewData["NewMenu"]</a>
+                    </h3>
+
+                    <div class="panel-controls-">
+                        <ul class="panel-controls">
+                            <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                            <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                            <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                            <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    @if(Model == null || Model.Count() == 0 )
+                    {
+                        <div id="not-exist">@ViewData["NotExist"]</div>
+                    }else{
+                        <table class="table datatable">
+                            <thead>
+                                <tr>
+                                    <th>@ViewData["Identity"]</th>
+                                    <th>@ViewData["Menu_Name"]</th>
+                                    <th>@ViewData["LangName"]</th>
+                                    <th>@ViewData["CanEdit"]</th>
+                                    <th>@ViewData["IsMainMenu"]</th>
+                                    <th>@ViewData["Commands"]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MenuId)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.MenuName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.LangName)
+                                            </td>
+                                            <td>
+                                                @if (item.CanEdit) {
+                                                    <span class="fa fa-check"></span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="fa fa-times"></span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (item.IsMainMenu) {
+                                                    <span class="fa fa-check"></span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="fa fa-times"></span>
+                                                }
+                                            </td>
+                                            <td>
+                                                <ul class="commands">
+                                                    @if (item.CanEdit)
+                                                    {                                                                            
+                                                        <li><a href="/Admin/@(lang.LangMark)/Menus/Edit?MenuId=@item.MenuId" title='@ViewData["Edit"] @ViewData["Menu"]'><span class="fa fa-edit"></span></a></li>
+                                                    }
+                                                    @*
+                                                    <li><a href="/Admin/@(lang.LangMark)/Menus/Details/@item.MenuId" title='@ViewData["Details"] @ViewData["Menu"]'><span class="fa fa-square-o"></span></a></li>
+                                                    *@
+                                                    @if (item.CanEdit)
+                                                    {
+                                                        <li onclick="DeleteMenu(@item.MenuId, '@item.MenuName');"><a title='@ViewData["Delete"] @ViewData["Menu"]'><span class="fa fa-minus"></span></a></li>
+                                                    }
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    }
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="div-hidden">
+ 
+    <form id="menu-delete-form" action="/Admin/@(lang.LangMark)/Menus/Delete"
+        data-ajax="true" data-ajax-method="POST"
+        data-ajax-begin="onBeginDelMenu" data-ajax-failure="onFailedDelMenu" 
+        data-ajax-complete="" data-ajax-success="onSuccessDelMenu"
+        >
+
+        <input type="hidden" id="hfDeleteMenuId" name="menuId" value="0" />
+    </form>
+    
+</div>
+
+<script>
+    var __mgDeleteMenu = '@Html.Raw(ViewData["Message_DeleteMenu"])';
+
+</script>
+

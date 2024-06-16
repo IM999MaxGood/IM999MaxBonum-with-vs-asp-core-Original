@@ -1,0 +1,38 @@
+@using IM999MaxBonum.Models;
+@using IM999MaxBonum.Classes;
+
+@model vPage
+
+@{
+    var lang = ViewBag.CurrentLang;
+    bool isRtl = lang.Direction.Trim().ToLower() == "ltr" ? false : true;
+
+    bool ShowSlider = (bool)ViewData["ShowSlider"];
+
+    ViewData["Title"] = ViewData["PageName"];
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Raw(Model.PageTopCode)
+
+<section id="Page">
+    <div class="container">
+        <div class="row">
+            <div class="wow fadeInUp col-md-12">
+                <div class="">
+                    <h1>@Html.Raw(Model.PageName)</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="wow fadeInUp col-md-12">
+                @Html.Raw(Model.PageContentHTML)
+            </div>
+        </div>
+    </div>        
+</section>
+

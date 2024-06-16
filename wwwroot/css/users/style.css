@@ -1,0 +1,129 @@
+html, body, #section-panel{
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    background: url('/img/users/back1.jpg') no-repeat center center fixed;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    background-color: black;
+}
+
+a:hover {
+    text-decoration: none;
+    color:  #93120c;
+}
+
+.btn-dark{
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.btn-dark:hover, .btn-dark:active{
+    color: #fff;
+    background-color: #1d2124;
+    border-color: #171a1d;
+}
+
+.center-height{
+    position: relative;
+    top: 25%;
+}
+
+/*
+.center-height{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    
+}
+*/
+
+.panel-login{
+    width: 550px;
+}
+
+.login-form{
+    margin: 0px 10px 0px 10px;
+}
+
+.form-control{
+    margin: 10px 0px;  
+}
+
+input[type="checkbox"]{
+    width: unset;
+    height: unset;
+    margin: unset;
+    display: unset;
+}
+
+input.error{
+    background-color: #f2dede;
+    border-color: #ebcccc;
+    color: #a94442;
+}
+
+.error{ 
+    color: #a94442;
+}
+
+.form-button
+{
+    margin: 10px 0px;
+}
+
+.retry-captcha
+{   
+    color: black;
+}
+
+#login-msg{
+    margin-bottom: unset;
+}
+
+/**profile************************************************************/
+.panel-profile{
+    width: 700px;
+}
+
+#profile-detail{
+    background-color: #e1e1e1;/* #bbb;*/  /*lightgray;*/
+    margin-bottom: 10px;
+    border: 1px solid #fff;
+    width: 100%;    
+}
+
+#profile-detail .row{
+    
+    padding: 10px 10px;
+    
+    border: 1px solid #fff;
+}
+
+#profile-detail .col-sm-8{
+    /*
+    border-left: 1px solid #fff;
+    */
+}
+
+
+/*dialog*/
+#dialogWait .modal-dialog{ 
+	top: 30%;
+}
+
+#waiting-content {
+	text-align: center;
+}
+
+
+
+

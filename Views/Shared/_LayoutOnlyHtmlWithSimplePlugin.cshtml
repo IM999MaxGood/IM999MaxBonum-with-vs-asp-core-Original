@@ -1,0 +1,116 @@
+@using IM999MaxBonum.Models;
+@using IM999MaxBonum.Classes;
+
+@{
+    var lang = ViewBag.CurrentLang;
+    bool isRtl = lang.Direction.Trim().ToLower() == "ltr" ? false : true;
+
+    string guids = ViewBag.GUIDS;
+    string sc = ViewBag.SC;
+    int expire = ViewBag.CurrentLoginLog.ExpireMin;
+
+    ViewData["Title"] = ViewData["PageName"];
+    ViewData["Description"] = "";
+}
+
+<!DOCTYPE html>
+<html dir="@lang.Direction" class="" lang="@lang.LangMark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="robots" content="noodp">
+    <meta name="author" content="http://www.im999max.com/">
+
+    <!-- tag for responsive view -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="publisher" href="https://www.facebook.com/Iounes.Manoochehri/">
+
+    <link rel="canonical" href="https://www.im999max.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>@ViewData["Title"]</title>
+    <meta name="description" content="@ViewData["Description"]">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Noto+Serif|Roboto+Slab" rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="~/font/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
+
+
+    <!-- animate -->
+    <link rel="stylesheet" href="~/css/animate.css" type="text/css">
+
+    <!-- Bootstrap css -->
+    @if (isRtl)
+    {
+        <link rel="stylesheet" href="~/plugin/bootstrap 3.3.5/bootstrap-rtl.min.css" type="text/css">
+    }else{
+        <link rel="stylesheet" href="~/plugin/bootstrap 3.3.5/bootstrap.min.css" type="text/css">
+    }
+
+@*
+    <!-- IM999MaxBonum -->
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
+    @if (isRtl)
+    {
+        <link rel="stylesheet" href="~/css/style-fa.css" type="text/css">
+    }
+*@
+
+    <!-- icon -->
+    <!---->
+    <link rel="shortcut icon" href="~/img/logo32.ico">
+    
+    <link rel="shortcut icon" type="image/png" href="~/img/logo32.bmp">
+
+    <script src="~/js/im999maxbonum-funcs.js" type="text/javascript" asp-append-version="true"></script>
+    
+    @*این جی.یو.آی.دی را خودم ایجاد کردم برای مطمئن شدن از این که یک سشن به چند کاربر نسبت داده نشود*@
+    <script>var _im999max_guids = '@guids'; setCookie("GUIDS", "@guids", @expire);</script>
+
+    @Html.Raw( ViewData["HeaderAddINCode"])
+</head>
+<body>
+  
+
+    @RenderBody()
+
+    @*ذخیره سشن فرم خود ساخته ام در کوکی*@
+    <script>setCookie("SC", "@sc", @expire)</script>
+
+    <div id="addin-end">
+        <!-- jQuery JS --> 
+        <script src="~/js/jquery-1.12.4.js" type="text/javascript" asp-append-version="true"></script>
+        <script src="~/js/jquery-migrate-1.4.1.min.js" type="text/javascript" asp-append-version="true"></script>
+
+        <!-- for ajax form -->
+        <script src="~/plugin/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js" type="text/javascript" asp-append-version="true"></script>
+
+        <!--Bootatrap JS -->
+        @if (isRtl)
+        {
+            <script src="~/plugin/bootstrap 3.3.5/bootstrap-rtl.min.js" type="text/javascript" asp-append-version="true"></script>
+        }else{
+            <script src="~/plugin/bootstrap 3.3.5/bootstrap.min.js" type="text/javascript" asp-append-version="true"></script>
+        }
+
+        <!-- wow -->
+        <script src="~/js/wow.min.js" type="text/javascript" asp-append-version="true"></script>
+    
+        @Html.Raw( ViewData["FooterAddINCode"])
+
+        @*
+        <!-- IM999MaxBonum scripts -->
+        <script src="~/js/script.js" type="text/javascript" asp-append-version="true"></script>*@
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿/*
+@font-face {
+    font-family: 'tinymce' !important;
+    src: url('/Scripts/tinymce/skins/lightgray/fonts/icomoon.eot?') format('eot'),
+         url('/Scripts/tinymce/skins/lightgray/fonts/icomoon.woff') format('woff'),
+         url('/Scripts/tinymce/skins/lightgray/fonts/icomoon.ttf') format('truetype'),
+         url('/Scripts/tinymce/skins/lightgray/fonts/icomoon.svg')
+
+}
+*/
+
+@font-face {
+    font-family: 'tinymce' !important;
+    src: url('/Scripts/tinymce/skins/lightgray/fonts/icomoon.eot') format('eot'),
+         url('/Scripts/tinymce/skins/lightgray/fonts/icomoon.woff') format('woff'),
+         url('/Scripts/tinymce/skins/lightgray/fonts/icomoon.ttf') format('truetype'),
+         url('/Scripts/tinymce/skins/lightgray/fonts/icomoon.svg')
+
+}
+
+.mce-tinymce i, .mce-tinymce i ::before, .mce-ico{
+    font-family: 'tinymce'!important;
+}
+
+.mce-tinymce {
+    direction : ltr;
+}
+
+

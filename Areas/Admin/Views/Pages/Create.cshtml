@@ -1,0 +1,145 @@
+@using IM999MaxBonum;
+@using IM999MaxBonum.Models;
+
+@model vPage
+
+@{
+    //ViewData["HeaderAddINCode"] += "<link rel='stylesheet' href='/css/admin/pages/create.css' type='text/css'>";
+    ViewData["FooterAddINCode"] += "<script src='/js/admin/pages/create.js' type='text/javascript'></script>";
+
+    var lang = ViewBag.CurrentLang;
+    bool isRtl = lang.Direction.Trim().ToLower() == "ltr" ? false : true;
+
+    string pageGuid = Guid.NewGuid().ToString();
+
+    ViewData["Page"] = Resource.GetData(lang.LangMark, "Page");
+    ViewData["Create"] = Resource.GetData(lang.LangMark, "Create");
+    
+    ViewData["PageName"] = ViewData["Create"] + " " + ViewData["Page"];
+    ViewData["Pages"] = Resource.GetData(lang.LangMark, "Pages");
+
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    ViewData["HomePage"] = Resource.GetData(lang.LangMark, "HomePage");
+
+    ViewData["PageGroupName"] = Resource.GetData(lang.LangMark, "PageGroupName");
+    ViewData["Page_Name"] = Resource.GetData(lang.LangMark, "Page_Name");
+    ViewData["Cancel"] = Resource.GetData(lang.LangMark, "Cancel");
+    ViewData["Language"] = Resource.GetData(lang.LangMark, "Language");
+    ViewData["Submiting"] = Resource.GetData(lang.LangMark, "Submiting");
+    ViewData["Reset"] = Resource.GetData(lang.LangMark, "Reset");
+
+    ViewData["PageTopCode"] = Resource.GetData(lang.LangMark, "PageTopCode");
+    ViewData["PageContentHTML"] = Resource.GetData(lang.LangMark, "PageContentHTML");
+
+    ViewData["FileManager"]  = Resource.GetData(lang.LangMark, "FileManager");
+
+    ViewData["Waiting"]  = Resource.GetData(lang.LangMark, "Waiting");
+
+    ViewData["PageName_Val_Req"] = string.Format( Resource.GetData(lang.LangMark, "Val_Req"), ViewData["Page_Name"]);    
+}
+
+<div id="dialogs">
+    @Html.Partial("Dialog", null, new ViewDataDictionary(this.ViewData) 
+                                            { { "id", "dialogWait" }, {"title", ""}, 
+                                            {"ShowClose", false}, {"Message", ViewData["Waiting"]} })
+</div>
+
+<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li><a href="/Admin/@(lang.LangMark)/">@ViewData["HomePage"]</a></li>
+    <li><a href="/Admin/@(lang.LangMark)/Pages/">@ViewData["Pages"]</a></li>
+    <li class="active">@ViewData["PageName"]</li>
+</ul>
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+    @*
+    <h2><span class="fa fa-align-justify"></span>@ViewData["PageName"]</h2> *@
+    <h2><span class="fa fa-tasks"></span>@ViewData["PageName"]</h2>
+</div>
+<!-- END PAGE TITLE -->
+
+<!-- PAGE CONTENT -->
+<div class="container page-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a><span class="fa fa-edit"></span> @ViewData["PageName"]</a></h3>
+
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div id="page-msg" class="alert alert-danger" style="display:none;" role="alert"></div>
+                    </div>
+
+                    <form id="page-form" action="InserPage" 
+                        data-ajax="true" data-ajax-method="POST"
+                        data-ajax-begin="onBeginCreate" data-ajax-failure="onFailedCreate" 
+                        data-ajax-complete="" data-ajax-success="onSuccessCreate"
+                        >
+
+                            <input asp-for="PageName" type="text" name="PageName" placeholder='@ViewData["Page_Name"]' class="form-control"/>
+                            
+                            @*برای قراردادن دراپ.داون بوت.استرپی
+                            @Html.Raw( ViewData["DropDown_Languages"])*@
+                            <input name="LangId" type="hidden" value='@ViewData["Languages_Id"]'/>
+
+                            @*برای قراردادن دراپ.داون بوت.استرپی*@
+                            @Html.Raw( ViewData["DropDown_PageGroups"])
+                            <br/>
+                            <textarea asp-for="PageTopCode" name="PageTopCode" placeholder='@ViewData["PageTopCode"]' class="form-control"></textarea>
+                            <br/>
+                            <textarea asp-for="PageContentHTML" id="PageContentHTML" name="PageContentHTML" placeholder='@ViewData["PageContentHTML"]' class="form-control"></textarea>
+                            
+                            <input name="UnicId" type="hidden" value='@ViewData["UnicId"]'/>
+                            <input name="PageContentText" type="hidden" id="PageContentText" />
+
+                            <br/>
+
+                            <div class="form-button"> 
+                                <input type="submit"  id="create-pg-btn" class="btn btn-primary" value='@ViewData["Create"]'/>
+                                <button type="button" id="reset-form" class="btn btn-danger">@ViewData["Reset"]</button>
+                                <button type="button" id="back-pg-btn" class="btn btn-dark">@ViewData["Cancel"]</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var __lang = '@Html.Raw(ViewData["Language"])';
+    var __val_pageName = '@Html.Raw(ViewData["PageName_Val_Req"])';
+    var __create = '@Html.Raw(ViewData["Create"])';
+    var __submiting = '@Html.Raw(ViewData["Submiting"])';
+    var __langMark2 = '@lang.LangMark';
+    var __langMark = '@lang.LangMark';
+
+    @if(lang.LangMark.ToLower().Trim() == "ir"){
+        @:__langMark = 'fa';
+    }else if(lang.LangMark.ToLower().Trim() == "en"){
+        @:__langMark = '';
+    }
+
+    var __langDir = 'rtl';
+    var __langToolDir = 'right';
+    @if(!isRtl){
+        @:__langToolDir = 'left';
+        @:__langDir = 'ltr';
+    }
+
+    var __FileManager = '@Html.Raw(ViewData["FileManager"])';
+    
+</script>

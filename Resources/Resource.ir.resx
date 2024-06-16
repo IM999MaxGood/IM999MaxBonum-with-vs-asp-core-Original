@@ -1,0 +1,1382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+ 
+<!--'&#x633;&#x645; &#x636;&#x62B;&#x642; &#x63A;&#x639;&#x62E; &#x62C;&#x686;&#x67E; &#x6AF;&#x6A9;&#x646;&#x62A; &#x628;&#x633;&#x634;&#x638;&#x637; &#x632;&#x698;&#x631; &#x630;&#x62F;&#x626;&#x648;  &#x64B;&#x64B;&#x64B; &#x64C;&#x64C;&#x64C; &#x64D;&#x64D;&#x64D; &#x631;&#x64A;&#x627;&#x644; &#x60C;&#x60C;&#x60C; &#x61B;&#x61B;&#x61B; ,,, &#x64E;&#x64E;&#x64E; &#x64F;&#x64F;&#x64F; &#x650;&#x650;&#x650; &#x651;&#x651;&#x651; &#x6C0;&#x6C0;&#x6C0; &#x622;&#x622;&#x622; &#x640;&#x640;&#x640; &#x629;&#x629;&#x629; &#x64A;&#x64A;&#x64A;  &#x624;&#x624;&#x624; &#x625;&#x625;&#x625; &#x623;&#x623;&#x623; &#x621;&#x621;&#x621; &#x61F;&#x61F;&#x61F;-->
+<!-- <value>سم ضثق غعخ جچپ گکنت بسشظط زژر ذدئو  ًًً ٌٌٌ ٍٍٍ ريال ،،، ؛؛؛ ,,, َََ ُُُ ِِِ ّّّ ۀۀۀ آآآ ـــ ةةة ييي  ؤؤؤ إإإ أأأ ءءء ؟؟؟</value>-->
+<!--'۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'-->
+  <data name="HomePage" xml:space="preserve">
+    <value>صفحه اصلی</value>
+  </data>
+  <data name="IM999Max_Com" xml:space="preserve">
+    <value>IM999MaxBonum (نهایت بهترینها)</value>
+  </data>
+  <data name="Design_Site" xml:space="preserve">
+    <value>طراحی سایتهای خود را به ما بسپارید</value>
+  </data>
+
+  <data name="Links" xml:space="preserve">
+    <value>لینکها</value>
+  </data>
+
+  <data name="About_Us" xml:space="preserve">
+    <value>درباره ما</value>
+  </data>
+
+  <data name="Services" xml:space="preserve">
+    <value>خدمات</value>
+  </data>
+
+  <data name="Samples" xml:space="preserve">
+    <value>نمونه کارها</value>
+  </data>
+
+  <data name="News" xml:space="preserve">
+    <value>اخبار</value>
+  </data>
+
+  <data name="Contact_Us" xml:space="preserve">
+    <value>تماس با ما</value>
+  </data>
+
+  <data name="Find_Us" xml:space="preserve">
+    <value>راههای ارتباطی</value>
+  </data>
+
+  <data name="Address" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+
+  <data name="Address_Text" xml:space="preserve">
+    <value>ایران, مشهد</value>
+  </data>
+
+  <data name="Phones" xml:space="preserve">
+    <value>تلفنها</value>
+  </data>
+
+  <data name="Mobiles" xml:space="preserve">
+    <value>همراهها</value>
+  </data>
+
+  <data name="Emails" xml:space="preserve">
+    <value>ایمیلها</value>
+  </data>
+
+  <data name="WebSites" xml:space="preserve">
+    <value>وب سایتها</value>
+  </data>
+
+  <data name="Recent_News" xml:space="preserve">
+    <value>آخرین اخبار</value>
+  </data>
+
+  <data name="Coming_Soon" xml:space="preserve">
+    <value>به زودی</value>
+  </data>
+
+  <data name="Description" xml:space="preserve">
+    <value>گروه مهندسی کامپیوتر آی.اِم.999.مَکس , طراحی صفحات وب , برنامه نویسی نرم افزارهای کاربردی برای سیستم عاملهای ویندوز و اندروید و آیفون</value>
+  </data>
+  <data name="Titr1" xml:space="preserve">
+    <value>گروه مهندسی کامپیوتر</value>
+  </data>
+  <data name="Titr2" xml:space="preserve">
+    <value>آی.اِم.۹۹۹.مَکس</value>
+  </data>
+  <data name="header_content_bar" xml:space="preserve">
+    <value> آنجا که کیفیت و زیبایی با یکدیگر پیوند میخورند ...</value>
+  </data>
+  <data name="2014_2018" xml:space="preserve">
+    <value> ۱۳۹۳-۱۳۹۷.</value>
+  </data>
+  <data name="Design_Site_By" xml:space="preserve">
+    <value>طراحی سایت توسط</value>
+  </data>
+  <data name="Link_Contact" xml:space="preserve">
+    <value>لینک تماس با ما</value>
+  </data>
+  <data name="Success_Not" xml:space="preserve">
+    <value>موفقیت اتفاقی نیست</value>
+  </data>
+
+  <data name="about_us_p1" xml:space="preserve">
+    <value>برای ایستادن در جایی که اکنون هستیم, درمدت ده سال فراز و نشیب های زیادی طی شده است. همچون هر پدیده نوظهور و متمایزی در این ماه با افت و خیزها و ناملایمتهای بی شماری روبرو بوده ایم و آنچه تا کنون از این سفر اندوخته ایم, گنجینه ای از اعتماد شما مخاطبان و همراهان گرانقدر است. اکنون جوانه ای دیگر از دارچر رسته است, میخواهد تا برفراز آسمانها رود و شاخ و برگ موفقیتهایشان را همچنان بگستراند. آیندگان راه ادامه و پایدار نگه دارند.</value>
+  </data>
+  <data name="about_us_p2" xml:space="preserve">
+    <value>برای ایستادن در جایی که اکنون هستیم, درمدت ده سال فراز و نشیب های زیادی طی شده است. همچون هر پدیده نوظهور و متمایزی در این ماه با افت و خیزها و ناملایمتهای بی شماری روبرو بوده ایم و آنچه تا کنون از این سفر اندوخته ایم, گنجینه ای از اعتماد شما مخاطبان و همراهان گرانقدر است. اکنون جوانه ای دیگر از دارچر رسته است, میخواهد تا برفراز آسمانها رود و شاخ و برگ موفقیتهایشان را همچنان بگستراند. آیندگان راه ادامه و پایدار نگه دارند.</value>
+  </data>
+  <data name="about_us_p3" xml:space="preserve">
+    <value>برای ایستادن در جایی که اکنون هستیم, درمدت ده سال فراز و نشیب های زیادی طی شده است. همچون هر پدیده نوظهور و متمایزی در این ماه با افت و خیزها و ناملایمتهای بی شماری روبرو بوده ایم و آنچه تا کنون از این سفر اندوخته ایم, گنجینه ای از اعتماد شما مخاطبان و همراهان گرانقدر است. اکنون جوانه ای دیگر از دارچر رسته است, میخواهد تا برفراز آسمانها رود و شاخ و برگ موفقیتهایشان را همچنان بگستراند. آیندگان راه ادامه و پایدار نگه دارند.</value>
+  </data>
+  <data name="about_us_p4" xml:space="preserve">
+    <value>برای ایستادن در جایی که اکنون هستیم, درمدت ده سال فراز و نشیب های زیادی طی شده است. همچون هر پدیده نوظهور و متمایزی در این ماه با افت و خیزها و ناملایمتهای بی شماری روبرو بوده ایم و آنچه تا کنون از این سفر اندوخته ایم, گنجینه ای از اعتماد شما مخاطبان و همراهان گرانقدر است. اکنون جوانه ای دیگر از دارچر رسته است, میخواهد تا برفراز آسمانها رود و شاخ و برگ موفقیتهایشان را همچنان بگستراند. آیندگان راه ادامه و پایدار نگه دارند.</value>
+  </data>
+  <data name="about_us_p5" xml:space="preserve">
+    <value>برای ایستادن در جایی که اکنون هستیم, درمدت ده سال فراز و نشیب های زیادی طی شده است. همچون هر پدیده نوظهور و متمایزی در این ماه با افت و خیزها و ناملایمتهای بی شماری روبرو بوده ایم و آنچه تا کنون از این سفر اندوخته ایم, گنجینه ای از اعتماد شما مخاطبان و همراهان گرانقدر است. اکنون جوانه ای دیگر از دارچر رسته است, میخواهد تا برفراز آسمانها رود و شاخ و برگ موفقیتهایشان را همچنان بگستراند. آیندگان راه ادامه و پایدار نگه دارند.</value>
+  </data>
+  <data name="about_us_p6" xml:space="preserve">
+    <value>برای ایستادن در جایی که اکنون هستیم, درمدت ده سال فراز و نشیب های زیادی طی شده است. همچون هر پدیده نوظهور و متمایزی در این ماه با افت و خیزها و ناملایمتهای بی شماری روبرو بوده ایم و آنچه تا کنون از این سفر اندوخته ایم, گنجینه ای از اعتماد شما مخاطبان و همراهان گرانقدر است. اکنون جوانه ای دیگر از دارچر رسته است, میخواهد تا برفراز آسمانها رود و شاخ و برگ موفقیتهایشان را همچنان بگستراند. آیندگان راه ادامه و پایدار نگه دارند.</value>
+  </data>
+  <data name="Contact_Us_txt" xml:space="preserve">
+    <value>برای تماس با ما کافیست اطلاعات زیر را تکمیل نمایید در اسرع وقت با شما تماس گرفته خواهد شد.</value>
+  </data>
+
+  <data name="YourName" xml:space="preserve">
+    <value>نام شما</value>
+  </data>
+  <data name="YourEmail" xml:space="preserve">
+    <value>ایمیل شما</value>
+  </data>
+  <data name="YourMobile" xml:space="preserve">
+    <value>شماره همراه شما</value>
+  </data>
+  <data name="YourMessage" xml:space="preserve">
+    <value>پیغامتان</value>
+  </data>
+
+  <data name="Send" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>یا</value>
+  </data>
+  <data name="Find_Us_way" xml:space="preserve">
+    <value>ما را از راههای زیر بیابید</value>
+  </data>
+
+<!--'۰','۱','۲','۳','۴','۵','۶','۷','۸','۹'-->
+  <data name="980000000000" xml:space="preserve">
+    <value>۹۸۰۰۰۰۰۰۰۰۰۰</value>
+  </data>
+
+  <data name="Google_Map_Add" xml:space="preserve">
+    <value>هاشمیه ۳۸ پلاک ۸۸ زنگ وسط</value>
+  </data>
+
+  <data name="Login" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+
+  <data name="User_Login_Page" xml:space="preserve">
+    <value>صفحه ورود کاربر</value>
+  </data>
+
+  <data name="Email" xml:space="preserve">
+    <value>ایمیل</value>
+  </data>
+
+  <data name="UserName" xml:space="preserve">
+    <value>کاربر</value>
+  </data>
+
+  <data name="Password" xml:space="preserve">
+    <value>پسورد</value>
+  </data>
+
+  <data name="keepme_logined" xml:space="preserve">
+    <value>ورود مرا یک روز بیاد داشته باش</value>
+  </data>
+
+  <data name="Captcha" xml:space="preserve">
+    <value>کد امنیتی</value>
+  </data>
+
+  <data name="Register" xml:space="preserve">
+    <value>ثبت نام</value>
+  </data>
+
+  <data name="Forget" xml:space="preserve">
+    <value>فراموشی</value>
+  </data>
+
+  <data name="Reset" xml:space="preserve">
+    <value>پاکسازی فرم</value>
+  </data>
+
+  <data name="Back_HomePage" xml:space="preserve">
+    <value>بازگشت به صفحه اصلی</value>
+  </data>
+
+  <data name="Val_Username" xml:space="preserve">
+    <value>مقدار ایمیل یا نام کاربری را وارد نمایید</value>
+  </data>
+
+  <data name="Val_Email" xml:space="preserve">
+    <value>این مقدار نمیتوان ایمیل باشد</value>
+  </data>
+
+  <data name="Val_Password" xml:space="preserve">
+    <value>مقدار کلمه عبور را وارد نمایید</value>
+  </data>
+
+  <data name="Val_Captcha" xml:space="preserve">
+    <value>مقدار کد امنیتی را وارد نمایید</value>
+  </data>
+
+  <data name="CatpchaNew" xml:space="preserve">
+    <value>کد امنیتی جدید</value>
+  </data>
+
+  <data name="CaptchaNok" xml:space="preserve">
+    <value>کد امنیتی اشتباه است</value>
+  </data>
+
+  <data name="Login_Input_Error" xml:space="preserve">
+    <value>نام کاربری یا ایمیل یا پسورد اشتباه است</value>
+  </data>
+
+  <data name="Login_Error_Online" xml:space="preserve">
+    <value>کاربر قبلا آنلاین بوده است</value>
+  </data>
+
+  <data name="Exec_Nok" xml:space="preserve">
+    <value>{0} با خطا مواجه شد</value>
+  </data>
+
+  <data name="Exec_Ok" xml:space="preserve">
+    <value>{0} موفقیت آمیز بود</value>
+  </data>
+
+  <data name="ErrorHas" xml:space="preserve">
+    <value>خطایی در {0} روی داده است</value>
+  </data>
+
+  <data name="Welcome" xml:space="preserve">
+    <value>به سایت خوش آمدید</value>
+  </data>
+
+  <data name="Waiting" xml:space="preserve">
+    <value>لطفا کمی صبر نمایید</value>
+  </data>
+
+  <data name="Submiting" xml:space="preserve">
+    <value>ارسال شد</value>
+  </data>
+
+  <data name="User_Profile_Page" xml:space="preserve">
+    <value>صفحه مشخصات کاربر</value>
+  </data>
+
+  <data name="Menu_address" xml:space="preserve">
+    <value>آدرس منو</value>
+  </data>
+
+  <data name="Profile" xml:space="preserve">
+    <value>مشخصات کاربر</value>
+  </data>
+
+  <data name="Logout" xml:space="preserve">
+    <value>خروج کاربر</value>
+  </data>
+
+  <data name="UserName" xml:space="preserve">
+    <value>نام کاربر</value>
+  </data>
+
+  <data name="IsManager" xml:space="preserve">
+    <value>مدیر است</value>
+  </data>
+
+  <data name="Pages" xml:space="preserve">
+    <value>صفحات</value>
+  </data>
+
+  <data name="Message_DeletePG" xml:space="preserve">
+    <value>آیا میخواهید این گروه صفحه و صفحاتش حذف شوند</value>
+  </data>
+
+  <data name="Message_DeleteP" xml:space="preserve">
+    <value>آیا میخواهید این صفحه را حذف کنید</value>
+  </data>
+  
+  <data name="IsPersonel" xml:space="preserve">
+    <value>کارمند است</value>
+  </data>
+
+  <data name="Admin_Page" xml:space="preserve">
+    <value>صفحه مدیریت</value>
+  </data>
+
+  <data name="Site_Setting" xml:space="preserve">
+    <value>تنظیمات سایت</value>
+  </data>
+
+  <data name="Site_Page_Group" xml:space="preserve">
+    <value>گروههای صفحات</value>
+  </data>
+
+  <data name="Site_Page" xml:space="preserve">
+    <value>صفحات سایت</value>
+  </data>
+
+  <data name="Menus_Group" xml:space="preserve">
+    <value>گروههای منوها</value>
+  </data>
+
+  <data name="Menus" xml:space="preserve">
+    <value>منوها</value>
+  </data>
+
+  <data name="Menu" xml:space="preserve">
+    <value>منو</value>
+  </data>
+
+  <data name="NewMenu" xml:space="preserve">
+    <value>منوی جدید</value>
+  </data>
+
+  <data name="Menu_Name" xml:space="preserve">
+    <value>نام منو</value>
+  </data>
+
+  <data name="IsMainMenu" xml:space="preserve">
+    <value>منو اصلی است</value>
+  </data>
+
+  <data name="Identity" xml:space="preserve">
+    <value>شناسه</value>
+  </data>
+
+  <data name="Message_DeleteMenu" xml:space="preserve">
+    <value>آیا میخواهید این منو حذف شود</value>
+  </data>
+
+  <data name="Menu_Create_Node" xml:space="preserve">
+    <value>ایجاد نود منو</value>
+  </data>
+
+  <data name="PageGroupId" xml:space="preserve">
+    <value>شناسه گروه صفحه</value>
+  </data>
+
+  <data name="Create_new_menu_root" xml:space="preserve">
+    <value>ایجاد نود ریشه ای جدید</value>
+  </data>
+  
+  <data name="PageGroupName" xml:space="preserve">
+    <value>نام گروه صفحه</value>
+  </data>
+  
+  <data name="PageTopCode" xml:space="preserve">
+    <value>کد بالای صفحه</value>
+  </data>
+
+  <data name="PageContentHTML" xml:space="preserve">
+    <value>محتوای صفحه</value>
+  </data>
+
+  <data name="FileManager" xml:space="preserve">
+    <value>مدیریت فایل</value>
+  </data>
+
+  <data name="Save" xml:space="preserve">
+    <value>ذخیره</value>
+  </data>
+
+
+
+
+  <data name="PageGroup" xml:space="preserve">
+    <value>گروه صفحه</value>
+  </data>
+
+  <data name="LangName" xml:space="preserve">
+    <value>نام زبان</value>
+  </data>
+
+  <data name="CanEdit" xml:space="preserve">
+    <value>قابل تغییر</value>
+  </data>
+
+  <data name="IsActive" xml:space="preserve">
+    <value>فعال است</value>
+  </data>
+
+  <data name="Commands" xml:space="preserve">
+    <value>دستورات</value>
+  </data>
+
+  <data name="Is" xml:space="preserve">
+    <value>هست</value>
+  </data>
+  <data name="Is_Not" xml:space="preserve">
+    <value>نیست</value>
+  </data>
+  <data name="Have" xml:space="preserve">
+    <value>دارد</value>
+  </data>
+  
+  <data name="Have_Not" xml:space="preserve">
+    <value>ندارد</value>
+  </data>
+
+  <data name="Yes" xml:space="preserve">
+    <value>بله</value>
+  </data>
+
+  <data name="No" xml:space="preserve">
+    <value>خیر</value>
+  </data>
+
+  <data name="Edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+
+  <data name="Details" xml:space="preserve">
+    <value>جزئیات</value>
+  </data>
+
+  <data name="Show" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+
+  <data name="New_Page_Group" xml:space="preserve">
+    <value>گروه صفحه جدید</value>
+  </data>
+
+  <data name="New_Page" xml:space="preserve">
+    <value>صفحه جدید</value>
+  </data>
+
+  <data name="CanDelete" xml:space="preserve">
+    <value>قابل حذف</value>
+  </data>
+
+  <data name="Page_Name" xml:space="preserve">
+    <value>نام صفحه</value>
+  </data>
+
+  <data name="Create" xml:space="preserve">
+    <value>ایجاد</value>
+  </data>
+
+  <data name="Cancel" xml:space="preserve">
+    <value>لغو</value>
+  </data>
+
+  <data name="Language" xml:space="preserve">
+    <value>زبان</value>
+  </data>
+    
+  <data name="Val_Req" xml:space="preserve">
+    <value>مقدار {0} مورد نیاز است</value>
+  </data>
+
+  <data name="Lang_Not_Exist" xml:space="preserve">
+    <value>چنین زبانی وجود ندارد</value>
+  </data>
+
+  <data name="PageGroup_Exist" xml:space="preserve">
+    <value>این نام گروه صفحه وجود دارد</value>
+  </data>
+
+  <data name="Page" xml:space="preserve">
+    <value>صفحه</value>
+  </data>
+
+  <data name="NotExist" xml:space="preserve">
+    <value>هیچ {0} وجود ندارد</value>
+  </data>
+<!--
+  <data name="Max_size_text" xml:space="preserve">
+    <value>لطفا بیشتر از {0} کاراکتر وارد ننمایید.</value>
+  </data>
+
+  <data name="Assistant_Design" xml:space="preserve">
+    <value>دستیار طراحی</value>
+  </data>
+  <data name="Clean_H" xml:space="preserve">
+    <value>ایده های کامل و طراحی منحصر به فرد</value>
+  </data>
+  <data name="Clean_Text" xml:space="preserve">
+    <value>یک طراحی کامل و ایده آل برای کسب و کار شما و ارتباط نزدیک و کم هزینه با مشتریانتان.</value>
+  </data>
+  <data name="ContactUs" xml:space="preserve">
+    <value>تماس با ما</value>
+  </data>
+  <data name="Counter_H1" xml:space="preserve">
+    <value>تعداد بازدیدها انجام شده</value>
+  </data>
+  <data name="Developer" xml:space="preserve">
+    <value>برنامه نویس</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>صفحه اصلی</value>
+  </data>
+  <data name="IM" xml:space="preserve">
+    <value>I.Manochehri</value>
+  </data>
+  <data name="IM999Max_Com" xml:space="preserve">
+    <value>IM999MaxBonum (نهایت بهترینها)</value>
+  </data>
+  <data name="OurService" xml:space="preserve">
+    <value>خدمات ما</value>
+  </data>
+  <data name="OurService_H1" xml:space="preserve">
+    <value>آژاکس</value>
+  </data>
+  <data name="OurService_H1_Text1" xml:space="preserve">
+    <value>بکارگیری از تکنولوژی </value>
+  </data>
+  <data name="OurService_H1_Text2" xml:space="preserve">
+    <value>آژاکس</value>
+  </data>
+  <data name="OurService_H2" xml:space="preserve">
+    <value>چند لایه</value>
+  </data>
+  <data name="OurService_H2_Text1" xml:space="preserve">
+    <value>استفاده موثر از </value>
+  </data>
+  <data name="OurService_H2_Text2" xml:space="preserve">
+    <value>لایه بندی</value>
+  </data>
+  <data name="OurService_H3" xml:space="preserve">
+    <value>طراحی چند پلت فرمی</value>
+  </data>
+  <data name="OurService_H3_Text1" xml:space="preserve">
+    <value>قابلیت خواندن صفحات وب در </value>
+  </data>
+  <data name="OurService_H3_Text2" xml:space="preserve">
+    <value>تبلت و ...</value>
+  </data>
+  <data name="OurService_H4" xml:space="preserve">
+    <value>مدیریت محتوا</value>
+  </data>
+  <data name="OurService_H4_Text1" xml:space="preserve">
+    <value>قابلیت تغییر محتوا</value>
+  </data>
+  <data name="OurService_H4_Text2" xml:space="preserve">
+    <value>بصورت دلخواه</value>
+  </data>
+  <data name="OurService_H5" xml:space="preserve">
+    <value>سایت یک صفحه ای</value>
+  </data>
+  <data name="OurService_H5_Text1" xml:space="preserve">
+    <value>طراحی تمامی محتویات</value>
+  </data>
+  <data name="OurService_H5_Text2" xml:space="preserve">
+    <value>سایت در یک صفحه</value>
+  </data>
+  <data name="OurService_H6" xml:space="preserve">
+    <value>پشتیبانی کامل</value>
+  </data>
+  <data name="OurService_H6_Text1" xml:space="preserve">
+    <value>پشتیبانی کامل در</value>
+  </data>
+  <data name="OurService_H6_Text2" xml:space="preserve">
+    <value>ساعات اداری</value>
+  </data>
+  <data name="OurService_Text" xml:space="preserve">
+    <value>خدمات ما بصورت کامل در پشتیبان سایت شما و کسب و کار شماست.</value>
+  </data>
+  <data name="OurTeam_H" xml:space="preserve">
+    <value>معرفی تیم ما</value>
+  </data>
+  <data name="OurTeam_Text" xml:space="preserve">
+    <value>تیم ما تیمی حرفه ای در حد تیم جهانی</value>
+  </data>
+  <data name="ReadMore" xml:space="preserve">
+    <value>ادامه مطلب</value>
+  </data>
+  <data name="RM" xml:space="preserve">
+    <value>R.Manochehri</value>
+  </data>
+  <data name="Sample_All" xml:space="preserve">
+    <value>تمامی کارها</value>
+  </data>
+  <data name="Sample_Contact" xml:space="preserve">
+    <value>اگر تمایل به سفارش کار دارید با ماتماس بگیرید</value>
+  </data>
+  <data name="Sample_Customers" xml:space="preserve">
+    <value>کار مربوط به مشتریان</value>
+  </data>
+  <data name="Sample_Form" xml:space="preserve">
+    <value>asp .net form</value>
+  </data>
+  <data name="Sample_H" xml:space="preserve">
+    <value>آخرین نمونه کارها</value>
+  </data>
+  <data name="Sample_Mvc" xml:space="preserve">
+    <value>asp .net mvc</value>
+  </data>
+  <data name="Sample_Text" xml:space="preserve">
+    <value>لیستی از آخرین نمونه کارهای ما برای مشاهده و مراجعه</value>
+  </data>
+  <data name="Sample_Under" xml:space="preserve">
+    <value>کارهای در دست ساخت</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>جستجو</value>
+  </data>
+  <data name="SearchGo" xml:space="preserve">
+    <value>بیاب</value>
+  </data>
+  <data name="SiteName" xml:space="preserve">
+    <value>IM999MaxBonum</value>
+  </data>
+  <data name="WhoWeAre" xml:space="preserve">
+    <value>درباره ما</value>
+  </data>
+  <data name="WhoWeAre_Beauty" xml:space="preserve">
+    <value>طراحی شکیل</value>
+  </data>
+  <data name="WhoWeAre_Beauty_Text" xml:space="preserve">
+    <value>تلاش ما بر اینست سایت در نهایت طراحی روز و مدرن باشد.</value>
+  </data>
+  <data name="WhoWeAre_Easy" xml:space="preserve">
+    <value>سفارشی سازی آسان</value>
+  </data>
+  <data name="WhoWeAre_Easy_Text" xml:space="preserve">
+    <value>سایتهای ما قابلیت سفارشی سازی بسیار ساده توسط خود مشتری را داراست.</value>
+  </data>
+  <data name="WhoWeAre_Perfect" xml:space="preserve">
+    <value>کامل برای همه</value>
+  </data>
+  <data name="WhoWeAre_Perfect_Text" xml:space="preserve">
+    <value>سعی ما بر این است نیازهای تمامی افراد از سایت تامین شود.</value>
+  </data>
+  <data name="WhoWeAre_Simple" xml:space="preserve">
+    <value>طراحی ساده</value>
+  </data>
+  <data name="WhoWeAre_Simple_Text" xml:space="preserve">
+    <value>طراحی ساده بهترین راه برای جذب تمامی افراد با هر سطح معلومات در سایت.</value>
+  </data>
+  <data name="WhoWeAre_Text" xml:space="preserve">
+    <value>وب سایتهای ما کسب و کار شما را در مسیر پیشرفت متحول میسازد.</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>صفحه اصلی</value>
+  </data>
+  <data name="Comments" xml:space="preserve">
+    <value>توضیحات</value>
+  </data>
+  <data name="Views" xml:space="preserve">
+    <value>بازدیدها</value>
+  </data>
+  <data name="Return" xml:space="preserve">
+    <value>بازگشت</value>
+  </data>
+  <data name="BestPages" xml:space="preserve">
+    <value>بهترین صفحات</value>
+  </data>
+  <data name="Contact_Us_Text" xml:space="preserve">
+    <value>برای تماس با ما کافیست اطلاعات زیر را تکمیل نمایید در اسرع وقت با شما تماس گرفته خواهد شد.</value>
+  </data>
+  <data name="Design_Site" xml:space="preserve">
+    <value>طراحی سایتهای خود را به ما بسپارید</value>
+  </data>
+  <data name="Find_Us" xml:space="preserve">
+    <value>ما را در لینکهای زیر بیابید</value>
+  </data>
+  <data name="Links" xml:space="preserve">
+    <value>لینکها</value>
+  </data>
+  <data name="Or" xml:space="preserve">
+    <value>یا</value>
+  </data>
+  <data name="Order_Job" xml:space="preserve">
+    <value>سفارش کار</value>
+  </data>
+  <data name="Other_" xml:space="preserve">
+    <value>دیگر ...</value>
+  </data>
+  <data name="Report_Bug" xml:space="preserve">
+    <value>گزارش خطا</value>
+  </data>
+  <data name="Send" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="Send_Failed" xml:space="preserve">
+    <value>متاسفانه در ارسال پیغام شد مشکل پیش آمد.</value>
+  </data>
+  <data name="Send_Success" xml:space="preserve">
+    <value>پیغام شما با موفقیت ارسال شد.</value>
+  </data>
+  <data name="Your_Email" xml:space="preserve">
+    <value>ایمیل شما</value>
+  </data>
+  <data name="Your_Message" xml:space="preserve">
+    <value>پیغامتان</value>
+  </data>
+  <data name="Your_Mobile" xml:space="preserve">
+    <value>شماره همراه شما</value>
+  </data>
+  <data name="Your_Name" xml:space="preserve">
+    <value>نام شما</value>
+  </data>
+  <data name="Your_Subject" xml:space="preserve">
+    <value>موضوع پیامتان</value>
+  </data>
+  <data name="About_Us" xml:space="preserve">
+    <value>درباره ما</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+  <data name="Address_Text" xml:space="preserve">
+    <value>ایران ، مشهد</value>
+  </data>
+  <data name="Coming_Soon" xml:space="preserve">
+    <value>به زودی</value>
+  </data>
+  <data name="Contact_To" xml:space="preserve">
+    <value>تماس با</value>
+  </data>
+  <data name="Emails" xml:space="preserve">
+    <value>ایمیلها</value>
+  </data>
+  <data name="FindUs" xml:space="preserve">
+    <value>راههای ارتباطی</value>
+  </data>
+  <data name="Footer_Text_1" xml:space="preserve">
+    <value>© 1394.</value>
+  </data>
+  <data name="Mobiles" xml:space="preserve">
+    <value>همراهها</value>
+  </data>
+  <data name="News" xml:space="preserve">
+    <value>اخبار</value>
+  </data>
+  <data name="Phones" xml:space="preserve">
+    <value>تلفنها</value>
+  </data>
+  <data name="Recent_News" xml:space="preserve">
+    <value>آخرین اخبار</value>
+  </data>
+  <data name="Redesign" xml:space="preserve">
+    <value>باز طراحی سایت توسط</value>
+  </data>
+  <data name="Samples" xml:space="preserve">
+    <value>نمونه کارها</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>خدمات</value>
+  </data>
+  <data name="WebSites" xml:space="preserve">
+    <value>وب سایتها</value>
+  </data>
+  <data name="Footer_Text_2" xml:space="preserve">
+    <value>© 1394 تمامی حقوق سایت محفوظ میباشد.</value>
+  </data>
+  <data name="Manager" xml:space="preserve">
+    <value>مدیر</value>
+  </data>
+  <data name="Error_Page" xml:space="preserve">
+    <value>صفحه خطا</value>
+  </data>
+  <data name="Error_Page_Header" xml:space="preserve">
+    <value>ببخشید! خطا رخ داده است ...</value>
+  </data>
+  <data name="Error_Page_Return" xml:space="preserve">
+    <value>شما میتوانید برگردید  به</value>
+  </data>
+  <data name="Login_Page" xml:space="preserve">
+    <value>صفحه ورود</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>ایمیل</value>
+  </data>
+  <data name="Forget_Pass" xml:space="preserve">
+    <value>کلمه عبورتان را فراموش کرده اید؟</value>
+  </data>
+  <data name="Login_To" xml:space="preserve">
+    <value>به حساب کاربریتان</value>
+  </data>
+  <data name="Log_In" xml:space="preserve">
+    <value>ورود</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>کلمه عبور</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>نام کاربری</value>
+  </data>
+  <data name="UserName_Email" xml:space="preserve">
+    <value>نام کاربری یا ایمیل</value>
+  </data>
+  <data name="KeepMe" xml:space="preserve">
+    <value>ماندن در سیستم</value>
+  </data>
+  <data name="Captcha" xml:space="preserve">
+    <value>کد امنیتی</value>
+  </data>
+  <data name="CatpchaNew" xml:space="preserve">
+    <value>کد امنیتی جدید</value>
+  </data>
+  <data name="Captcha_Problem" xml:space="preserve">
+    <value>کدامنیتی مشکل دارد</value>
+  </data>
+  <data name="Captcha_Wrong" xml:space="preserve">
+    <value>کد امنیتی اشتباه است</value>
+  </data>
+  <data name="Login_Error" xml:space="preserve">
+    <value>خطا در ورود به سایت</value>
+  </data>
+  <data name="Login_Not_Found" xml:space="preserve">
+    <value>نام کاربری , ایمیل یا کلمه عبور اشتباه است</value>
+  </data>
+  <data name="Login_Valid_Error" xml:space="preserve">
+    <value>اعتبارسنجی ورود به سایت مشکل دارد.</value>
+  </data>
+  <data name="Welcome_Site" xml:space="preserve">
+    <value>به سایت ما خوش آمدید.</value>
+  </data>
+  <data name="Please_Waiting" xml:space="preserve">
+    <value>لطفا چند دقیقه صبر نمایید :)</value>
+  </data>
+  <data name="Forget_Login" xml:space="preserve">
+    <value>فراموشی </value>
+  </data>
+  <data name="Forget_Login_Txt" xml:space="preserve">
+    <value>رمز یا نام کاربری ورود به سایت</value>
+  </data>
+  <data name="Send_Password" xml:space="preserve">
+    <value>ارسال کلمه عبور</value>
+  </data>
+  <data name="Back_Login" xml:space="preserve">
+    <value>برگشت به صفحه ورود</value>
+  </data>
+  <data name="Password_Sended" xml:space="preserve">
+    <value>کلمه عبور به ایمیلتان ارسال شد.</value>
+  </data>
+  <data name="Forget_Page" xml:space="preserve">
+    <value>صفحه فراموشی کلمه عبور</value>
+  </data>
+  <data name="Sending" xml:space="preserve">
+    <value>در حال ارسال ...</value>
+  </data>
+  <data name="Forget_Error" xml:space="preserve">
+    <value>خطا در فراموشی نام کاربری</value>
+  </data>
+  <data name="Forget_Not_Found" xml:space="preserve">
+    <value>چنین نام کاربری یا ایمیلی وجود ندارد.</value>
+  </data>
+  <data name="Forget_Valid_Error" xml:space="preserve">
+    <value>خطا در بررسی صحت فراموشی نام کاربری</value>
+  </data>
+  <data name="ErrorHas" xml:space="preserve">
+    <value>خطایی رخ داده در '{0}'</value>
+  </data>
+  <data name="Forget_Msg_OK" xml:space="preserve">
+    <value>ارسال پسورد جدید با موفقیت انجام شد.</value>
+  </data>
+  <data name="Froget" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Hi" xml:space="preserve">
+    <value>سلام</value>
+  </data>
+  <data name="Page_Message_Title" xml:space="preserve">
+    <value>صفحه پیغام</value>
+  </data>
+  <data name="Password_Mail_Subject" xml:space="preserve">
+    <value>ارسال پسورد جدید</value>
+  </data>
+  <data name="SendEmail" xml:space="preserve">
+    <value>ارسال ایمیل</value>
+  </data>
+  <data name="Personel" xml:space="preserve">
+    <value>کارمند</value>
+  </data>
+  <data name="IM999MaxBonum" xml:space="preserve">
+    <value>IM999Max-Bonum</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>صفحه کنترلها</value>
+  </data>
+  <data name="Gallery" xml:space="preserve">
+    <value>دفتر عکسها</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>منوها</value>
+  </data>
+  <data name="Profile" xml:space="preserve">
+    <value>مشخصات کاربر</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>خیر</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>بله</value>
+  </data>
+  <data name="Log_Out" xml:space="preserve">
+    <value>&lt;strong&gt;خروج&lt;/strong&gt; از سایت؟</value>
+  </data>
+  <data name="Log_Out_Text" xml:space="preserve">
+    <value>&lt;p&gt;آیا میخواهید از سایت خارج شوید؟&lt;/p&gt;
+                    &lt;p&gt;با فشار دادن 'خیر' شما به کار خود ادامه میدهید. با فشار دادن 'بله' کاربر فعلی خارج میشود.&lt;/p&gt;</value>
+  </data>
+  <data name="Articles" xml:space="preserve">
+    <value>مقالات</value>
+  </data>
+  <data name="Articles_Groups" xml:space="preserve">
+    <value>گروهای مقالات</value>
+  </data>
+  <data name="Files" xml:space="preserve">
+    <value>فایلها</value>
+  </data>
+  <data name="Files_Groups" xml:space="preserve">
+    <value>گروههای فایلها</value>
+  </data>
+  <data name="Images" xml:space="preserve">
+    <value>عکسها</value>
+  </data>
+  <data name="Images_Albums" xml:space="preserve">
+    <value>آلبوهای عکسها</value>
+  </data>
+  <data name="Inbox" xml:space="preserve">
+    <value>صندوق دریافتیها</value>
+  </data>
+  <data name="Menus" xml:space="preserve">
+    <value>منوها</value>
+  </data>
+  <data name="Menus_Groups" xml:space="preserve">
+    <value>گروههای منوها</value>
+  </data>
+  <data name="Messages" xml:space="preserve">
+    <value>پیغامها</value>
+  </data>
+  <data name="News_Groups" xml:space="preserve">
+    <value>گروههای خبری</value>
+  </data>
+  <data name="Outbox" xml:space="preserve">
+    <value>صندوق ارسالیها</value>
+  </data>
+  <data name="Pages_Groups" xml:space="preserve">
+    <value>گروههای صفحات</value>
+  </data>
+  <data name="Person" xml:space="preserve">
+    <value>شخص</value>
+  </data>
+  <data name="Send_Message" xml:space="preserve">
+    <value>ارسال پیغام</value>
+  </data>
+  <data name="Site_Setting" xml:space="preserve">
+    <value>تنظیمات سایت</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>کاربر</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>کاربران</value>
+  </data>
+  <data name="Users_Groups" xml:space="preserve">
+    <value>گروههای کاربران</value>
+  </data>
+  <data name="CanDelete" xml:space="preserve">
+    <value>امکان پاک شدن</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>جزئیات</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="Have" xml:space="preserve">
+    <value>دارد</value>
+  </data>
+  <data name="Have_Not" xml:space="preserve">
+    <value>ندارد</value>
+  </data>
+  <data name="IsDefaultTop" xml:space="preserve">
+    <value>آیا گروه منوی اصلیست</value>
+  </data>
+  <data name="LangName" xml:space="preserve">
+    <value>زبان گروه منوها</value>
+  </data>
+  <data name="MenuGroupId" xml:space="preserve">
+    <value>شناسه گروه منو</value>
+  </data>
+  <data name="MenuGroupName" xml:space="preserve">
+    <value>نام گروه منو</value>
+  </data>
+  <data name="New_Menu_Group" xml:space="preserve">
+    <value>ایجاد گروه منو</value>
+  </data>
+  <data name="Auto_assign" xml:space="preserve">
+    <value>مقداردهی خودکار</value>
+  </data>
+  <data name="Max_size" xml:space="preserve">
+    <value>نهایت اندازه = {0}</value>
+  </data>
+  <data name="Min_size" xml:space="preserve">
+    <value>حداقل اندازه = {0}</value>
+  </data>
+  <data name="Read_only" xml:space="preserve">
+    <value>فقط خواندنی</value>
+  </data>
+  <data name="Required" xml:space="preserve">
+    <value>مقدار لازم</value>
+  </data>
+  <data name="MenuGroupLangName" xml:space="preserve">
+    <value>زبان گروه منوها</value>
+  </data>
+  <data name="Max_size_text" xml:space="preserve">
+    <value>لطفا بیشتر از {0} کاراکتر وارد ننمایید.</value>
+  </data>
+  <data name="Min_size_text" xml:space="preserve">
+    <value>لطفا حداقل {0} کاراکتر وارد نمایید.</value>
+  </data>
+  <data name="Required_Text" xml:space="preserve">
+    <value>مقداردهی به این فیلد لازم است.</value>
+  </data>
+  <data name="Valid_Error" xml:space="preserve">
+    <value>خطا در اعتبار سنجی</value>
+  </data>
+  <data name="Clear_form" xml:space="preserve">
+    <value>پاک کردن</value>
+  </data>
+  <data name="Hide_error" xml:space="preserve">
+    <value>مخفی کردن خطاها</value>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>ارسال</value>
+  </data>
+  <data name="Submiting" xml:space="preserve">
+    <value>در حال ارسال</value>
+  </data>
+  <data name="Back" xml:space="preserve">
+    <value>بازگشت</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="FaildAdd" xml:space="preserve">
+    <value>افزودن {0} ناموفق بود</value>
+  </data>
+  <data name="FaildDel" xml:space="preserve">
+    <value>حذف {0} ناموفق بود</value>
+  </data>
+  <data name="FaildSave" xml:space="preserve">
+    <value>ذخیره {0} ناموفق بود</value>
+  </data>
+  <data name="HaveSubMenu" xml:space="preserve">
+    <value>این منو دارای زیر منو است لطفا ابتدا زیر منوها را حذف نمایید</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>منو</value>
+  </data>
+  <data name="SuccessAdd" xml:space="preserve">
+    <value>{0} با موفقیت اضافه شد</value>
+  </data>
+  <data name="SuccessDel" xml:space="preserve">
+    <value>{0} با موفقیت حذف شد</value>
+  </data>
+  <data name="SuccessSave" xml:space="preserve">
+    <value>{0} با موفقیت ذخیره شد</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>اضافه کردن</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>لغو</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>ایجاد</value>
+  </data>
+  <data name="Create_new_menu_root" xml:space="preserve">
+    <value>ایجاد نود ریشه منو جدید</value>
+  </data>
+  <data name="NotExist" xml:space="preserve">
+    <value>{0} برای نمایش وجود ندارد </value>
+  </data>
+  <data name="SubMenu" xml:space="preserve">
+    <value>زیر منو</value>
+  </data>
+  <data name="Menus_Text" xml:space="preserve">
+    <value>&lt;p&gt;هر گونه تغییر در نام و آدرس منوها و زیر منوها ذخیر میشود حتی اگر شما دکمه ذخیره را نزنید&lt;/p&gt;</value>
+  </data>
+  <data name="Menu_address" xml:space="preserve">
+    <value>آدرس منو</value>
+  </data>
+  <data name="Menu_Create_Node" xml:space="preserve">
+    <value>ایجاد نود منو</value>
+  </data>
+  <data name="Menu_name" xml:space="preserve">
+    <value>نام منو</value>
+  </data>
+  <data name="Commands" xml:space="preserve">
+    <value>فرمانها</value>
+  </data>
+  <data name="Menu_Group" xml:space="preserve">
+    <value>گروه منو</value>
+  </data>
+  <data name="Save_changes" xml:space="preserve">
+    <value>ذخیره تغییرات</value>
+  </data>
+  <data name="And" xml:space="preserve">
+    <value>و</value>
+  </data>
+  <data name="Back_Text" xml:space="preserve">
+    <value>خروج از این صفحه و باز گشت به صفحه لیست</value>
+  </data>
+  <data name="New_Page" xml:space="preserve">
+    <value>صفحه جدید</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>صفحه</value>
+  </data>
+  <data name="Page_Content_Mini" xml:space="preserve">
+    <value>خلاصه صفحه</value>
+  </data>
+  <data name="Page_GroupName" xml:space="preserve">
+    <value>نام گروه صفحه</value>
+  </data>
+  <data name="Page_Id" xml:space="preserve">
+    <value>کد صفحه</value>
+  </data>
+  <data name="Page_Name" xml:space="preserve">
+    <value>نام صفحه</value>
+  </data>
+  <data name="Page_Image" xml:space="preserve">
+    <value>تصویر سایت</value>
+  </data>
+  <data name="Page_Image_Choice" xml:space="preserve">
+    <value>انتخاب تصویر سایت</value>
+  </data>
+  <data name="Show" xml:space="preserve">
+    <value>نمایش</value>
+  </data>
+  <data name="Page_Lang" xml:space="preserve">
+    <value>زبان صفحه</value>
+  </data>
+  <data name="Page_Top_Code" xml:space="preserve">
+    <value>کد بالای صفحه</value>
+  </data>
+  <data name="Site_Language" xml:space="preserve">
+    <value>زبان سایت</value>
+  </data>
+  <data name="Collapse" xml:space="preserve">
+    <value>جمع و پهن کردن</value>
+  </data>
+  <data name="Fullscreen" xml:space="preserve">
+    <value>نمایش تمام صفحه</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>مخفی کردن</value>
+  </data>
+  <data name="Panel" xml:space="preserve">
+    <value>پنل</value>
+  </data>
+  <data name="RefreshInfo" xml:space="preserve">
+    <value>بروز رسانی اطلاعات</value>
+  </data>
+  <data name="DeletePage" xml:space="preserve">
+    <value>حذف تمامی صفحات و ترجمه هایش با کد : </value>
+  </data>
+  <data name="Set_Default" xml:space="preserve">
+    <value>برگرداندن مقادیر اولیه</value>
+  </data>
+  <data name="Edit_Content_Page" xml:space="preserve">
+    <value>ویرایش محتوای صفحه</value>
+  </data>
+  <data name="Edit_Fields_Page" xml:space="preserve">
+    <value>ویرایش مشخصات صفحه</value>
+  </data>
+  <data name="UserProfile" xml:space="preserve">
+    <value>مشخصات کاربر</value>
+  </data>
+  <data name="AboutMe" xml:space="preserve">
+    <value>درباره من</value>
+  </data>
+  <data name="About_Me" xml:space="preserve">
+    <value>درباره خود بنویسید</value>
+  </data>
+  <data name="Back_Text2" xml:space="preserve">
+    <value>خروج از این صفحه </value>
+  </data>
+  <data name="BirthDate" xml:space="preserve">
+    <value>تاریخ تولد</value>
+  </data>
+  <data name="Education" xml:space="preserve">
+    <value>تحصیلات</value>
+  </data>
+  <data name="Email_Correct" xml:space="preserve">
+    <value>فرمت ایمیل وارد شده صحیح نیست</value>
+  </data>
+  <data name="Family" xml:space="preserve">
+    <value>نام خانوادگی</value>
+  </data>
+  <data name="Job" xml:space="preserve">
+    <value>شغل</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>شماره همراه</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>نام</value>
+  </data>
+  <data name="PostalCode" xml:space="preserve">
+    <value>کد پستی</value>
+  </data>
+  <data name="Repeat_Password" xml:space="preserve">
+    <value>تکرار کلمه عبور</value>
+  </data>
+  <data name="Repeat_Password_Equal" xml:space="preserve">
+    <value>پسوردها با هم یکسان نیستند</value>
+  </data>
+  <data name="Repeat_Your_Password" xml:space="preserve">
+    <value>تکرار کلمه عبورتان</value>
+  </data>
+  <data name="Tel" xml:space="preserve">
+    <value>شماره تلفن</value>
+  </data>
+  <data name="Telephone" xml:space="preserve">
+    <value>شماره تلفن ثابت</value>
+  </data>
+  <data name="User_Image" xml:space="preserve">
+    <value>تصویر کاربر</value>
+  </data>
+  <data name="User_Image_Choice" xml:space="preserve">
+    <value>انتخاب تصویر کاربر</value>
+  </data>
+  <data name="Your_Address" xml:space="preserve">
+    <value>آدرس شما</value>
+  </data>
+  <data name="Your_BirthDate" xml:space="preserve">
+    <value>تاریخ تولد شما</value>
+  </data>
+  <data name="Your_Education" xml:space="preserve">
+    <value>میزان تحصیلات شما</value>
+  </data>
+  <data name="Your_Family" xml:space="preserve">
+    <value>نام خانوادگی شما</value>
+  </data>
+  <data name="Your_Job" xml:space="preserve">
+    <value>حرفه ای که به آن مشغولید</value>
+  </data>
+  <data name="Your_Password" xml:space="preserve">
+    <value>کلمه عبورتان</value>
+  </data>
+  <data name="Page_Image_Choice2" xml:space="preserve">
+    <value>انتخاب تصویر کاربر با سایز 1169 در 593</value>
+  </data>
+  <data name="User_Image_Choice2" xml:space="preserve">
+    <value>انتخاب تصویر کاربر با سایز 500 در 500</value>
+  </data>
+  -->
+</root>

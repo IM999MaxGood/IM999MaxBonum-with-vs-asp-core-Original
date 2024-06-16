@@ -1,0 +1,198 @@
+@using IM999MaxBonum;
+@using IM999MaxBonum.Models;
+
+@model vMenu;
+
+@{
+    ViewData["HeaderAddINCode"] += "<link rel='stylesheet' href='/css/admin/menus/create.css' type='text/css'>";
+    ViewData["FooterAddINCode"] += "<script src='/js/admin/menus/create.js' type='text/javascript'></script>";
+
+    var lang = ViewBag.CurrentLang;
+    bool isRtl = lang.Direction.Trim().ToLower() == "ltr" ? false : true;
+
+    string pageGuid = Guid.NewGuid().ToString();
+
+    ViewData["Menu"] = Resource.GetData(lang.LangMark, "Menu");
+    ViewData["Menus"] = Resource.GetData(lang.LangMark, "Menus");
+    ViewData["Create"] = Resource.GetData(lang.LangMark, "Create");
+    
+    ViewData["PageName"] = ViewData["Create"] + " " + ViewData["Menu"];
+    
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    ViewData["HomePage"] = Resource.GetData(lang.LangMark, "HomePage");
+
+    ViewData["Menu_Name"] = Resource.GetData(lang.LangMark, "Menu_Name");
+    ViewData["Cancel"] = Resource.GetData(lang.LangMark, "Cancel");
+    ViewData["Language"] = Resource.GetData(lang.LangMark, "Language");
+    ViewData["Submiting"] = Resource.GetData(lang.LangMark, "Submiting");
+    ViewData["Reset"] = Resource.GetData(lang.LangMark, "Reset");
+
+    ViewData["Waiting"] = Resource.GetData(lang.LangMark, "Waiting");
+    ViewData["Create_new_menu_root"] = Resource.GetData(lang.LangMark, "Create_new_menu_root");
+    
+    ViewData["Menu_Create_Node"] = Resource.GetData(lang.LangMark, "Menu_Create_Node");    
+    ViewData["Menu_Address"] = Resource.GetData(lang.LangMark, "Menu_Address");      
+
+    ViewData["MenuName_Val_Req"] = string.Format( Resource.GetData(lang.LangMark, "Val_Req"), ViewData["Menu_Name"]);    
+}
+
+<div id="dialogs">
+    @Html.Partial("Dialog", null, new ViewDataDictionary(this.ViewData) 
+                                            { { "id", "dialogWait" }, {"title", ""}, 
+                                            {"ShowClose", false}, {"Message", ViewData["Waiting"]} })
+</div>
+
+<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li><a href="/Admin/@(lang.LangMark)/">@ViewData["HomePage"]</a></li>
+    <li><a href="/Admin/@(lang.LangMark)/Menus/">@ViewData["Menus"]</a></li>
+    <li class="active">@ViewData["PageName"]</li>
+</ul>
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+    @*
+    <h2><span class="fa fa-align-justify"></span>@ViewData["PageName"]</h2> *@
+    <h2><span class="fa fa-tasks"></span>@ViewData["PageName"]</h2>
+</div>
+<!-- END PAGE TITLE -->
+
+<!-- PAGE CONTENT -->
+<div class="container page-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a><span class="fa fa-edit"></span> @ViewData["PageName"]</a></h3>
+
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div id="menu-msg" class="alert alert-danger" style="display:none;" role="alert"></div>
+                    </div>
+
+                    <form id="menu-form" action="DoCreate" 
+                        data-ajax="true" data-ajax-method="POST"
+                        data-ajax-begin="onBeginCreate" data-ajax-failure="onFailedCreate" 
+                        data-ajax-complete="" data-ajax-success="onSuccessCreate"
+                        >
+
+                            <input type="text" name="MenuName" placeholder='@ViewData["Menu_Name"]' class="form-control"/>
+                            
+                            @*برای قراردادن دراپ.داون بوت.استرپی*@
+                            @Html.Raw( ViewData["DropDown_Languages"])
+
+                            <input name="guid" type="hidden" value="@pageGuid"/>
+
+                            <br/>
+
+@*
+                <div class="alert alert-info info" role="alert">
+                    @Html.Raw(Resource.Menus_Text)
+                </div>
+                @if (Model == null || Model.Count() == 0)
+                {
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="tree-view-empty">
+                                @string.Format(Resource.NotExist, Resource.Menu)
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div id="tree-view-menu">
+
+                                <ul>
+                                    @foreach (var item in Model.Where(x => x.MenuParentId == null || x.MenuParentId == 0).ToList())
+                                    {
+                                        <li>
+                                            <a id="@item.MenuId" data-perent-id="@item.MenuParentId" data-url="@item.MenuUrl" class="ContextMenu_@item.MenuId">@item.MenuName</a>
+                                            @Html.Partial("MenuChild", item)
+                                        </li>
+                                    }
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                }
+*@
+                            <button type="button" id="create-root-btn" class="btn btn-success" onclick="createRootMenu();">@ViewData["Create_new_menu_root"]</button>
+
+                            <div id="tree-view-menu">
+                                @Html.Raw(ViewData["MenuAndItems"])
+                                <input name="menuAndItems" type="hidden"/>
+                            </div>
+
+                            <div class="form-button"> 
+                                <input type="submit"  id="create-menu-btn" class="btn btn-primary" value='@ViewData["Create"]'/>
+                                <button type="button" id="reset-form" class="btn btn-danger">@ViewData["Reset"]</button>
+                                <button type="button" id="back-pg-btn" class="btn btn-dark">@ViewData["Cancel"]</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="input-menu" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">@ViewData["Cancel"]</span>
+                </button>
+                <h4 class="modal-title"> <span class="fa fa-edit"> @ViewData["Menu_Create_Node"] </span></h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label class="control-label"> @ViewData["Menu_Name"] </label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input class="form-control text-box single-line" id="MenuName" name="MenuName" value="" type="text">
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label class="control-label">@ViewData["Menu_Address"]</label>
+                    </div>
+                    <div class="col-lg-8">
+                        <input class="form-control text-box single-line" id="MenuUrl" name="MenuUrl" value="" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="cancel-btn" class="btn btn-default" data-dismiss="modal">@ViewData["Cancel"]</button>
+                <button type="button" id="create-btn" class="btn btn-primary">@ViewData["Create"] @ViewData["Menu"]</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    var __lang = '@Html.Raw(ViewData["Language"])';
+    var __val_menuName = '@Html.Raw(ViewData["MenuName_Val_Req"])';
+    var __create = '@Html.Raw(ViewData["Create"])';
+    var __submiting = '@Html.Raw(ViewData["Submiting"])';
+    var __langMark = '@Html.Raw(lang.LangMark)';
+</script>

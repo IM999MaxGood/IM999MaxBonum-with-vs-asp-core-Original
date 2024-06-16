@@ -1,0 +1,147 @@
+body{
+    background-color: #eee;/*white;*/
+    color: black;
+}
+
+a, a:link, a:visited, a:focus {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+a:hover {
+    cursor: pointer;
+	color:#93120c;
+    text-decoration: none;
+}
+
+.container{
+    width: 100%;
+}
+
+#admin-header{
+    height: 60px;
+    color: white;
+    background-color: black;
+}
+
+.site-icon, .site-mainmenu{
+    float: left;
+}
+
+.site-icon{
+    width: 60px;
+    height: 60px;
+
+    background-image: url('/img/Mark-min200-2.png');
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#profile-user{
+    padding-top: 10px;
+    text-align: center;
+}
+
+#profile-user img{
+    width: 100px;
+    height: 100px;
+
+    /*background-image: url('/img/Mark-min200-2.png');*/
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#profile-user ul{
+    text-align: left;
+}
+
+#profile-user ul a{
+    line-height: 30px;
+    padding-left: 70px;
+    width: 100%;
+}
+
+nav ul ul a{
+    line-height: 30px !important;
+    padding-left: 70px;
+    width: 100%;
+}
+
+.page-title{
+    margin-left: 15px;
+}
+
+.panel-title{
+    /*width: 70%;*/
+    display: inline;
+}
+
+.panel-controls{
+    list-style: none;
+    float: right;
+}
+
+.panel-controls li {
+    float: right;
+    display: block;
+    padding: 0px 5px;
+}
+
+.div-invisible{
+    visibility: hidden;
+}
+
+.commands{
+    list-style: none;
+    float: left;
+    padding-left: unset; 
+}
+
+.commands li {
+    float: right;
+    display: block;
+    padding: 0px 5px;
+}
+
+.panel-controls-{
+    right: 20px;
+    top: 20px;
+    position: absolute;
+}
+
+input.error{
+    background-color: #f2dede;
+    border-color: #ebcccc;
+    color: #93120c;
+}
+
+.error{ 
+    color: #93120c;
+}
+
+.btn-dark{
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+.btn-dark:hover, .btn-dark:active{
+    color: #fff;
+    background-color: #1d2124;
+    border-color: #171a1d;
+}
+
+/*dialog*/
+#dialogWait .modal-dialog{ 
+	top: 30%;
+}
+
+#waiting-content {
+	text-align: center;
+}
+

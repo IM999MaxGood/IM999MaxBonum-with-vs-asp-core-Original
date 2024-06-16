@@ -1,0 +1,25 @@
+
+#tree-view-menu {
+    border-style:solid;
+    border-color:gray;
+    border-width: 1px;
+    width:100%;
+
+    margin-top: 10px;
+    margin-bottom: 10px;    
+    padding: 10px;    
+}
+
+#tree-view-empty {
+    border-style:solid;
+    border-color:gray;
+    border-width: 1px;
+    width:100%;
+
+    margin-top: 10px;
+    margin-bottom: 10px;    
+    padding: 10px;    
+
+    color: white;
+    background: none repeat scroll 0% 0% #333;
+}

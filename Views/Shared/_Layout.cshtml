@@ -1,0 +1,298 @@
+﻿@using IM999MaxBonum.Models;
+@using IM999MaxBonum.Classes;
+@*using IM999MaxBonum.App_GlobalResources;*@
+
+@{
+    var lang = ViewBag.CurrentLang;
+    bool isRtl = lang.Direction.Trim().ToLower() == "ltr" ? false : true;
+    string langMark = lang.LangMark;
+
+    string guids = ViewBag.GUIDS;
+    string sc = ViewBag.SC;
+    int expire = ViewBag.CurrentLoginLog.ExpireMin;
+
+    bool ShowSlider = (bool)ViewData["ShowSlider"];
+
+    ViewData["Title"] = ViewData["PageName"];
+
+    ViewData["IM999Max_Com"] = Resource.GetData(lang.LangMark, "IM999Max_Com");
+    ViewData["Design_Site"] = Resource.GetData(lang.LangMark, "Design_Site");
+    ViewData["Links"] = Resource.GetData(lang.LangMark, "Links");
+    ViewData["About_Us"] = Resource.GetData(lang.LangMark, "About_Us");
+    ViewData["Services"] = Resource.GetData(lang.LangMark, "Services");    
+    ViewData["Samples"] = Resource.GetData(lang.LangMark, "Samples");    
+    ViewData["News"] = Resource.GetData(lang.LangMark, "News");
+    ViewData["Contact_Us"] = Resource.GetData(lang.LangMark, "Contact_Us");
+    ViewData["Find_Us"] = Resource.GetData(lang.LangMark, "Find_Us");
+    ViewData["Address"] = Resource.GetData(lang.LangMark, "Address");
+    ViewData["Address_Text"] = Resource.GetData(lang.LangMark, "Address_Text");
+    ViewData["Phones"] = Resource.GetData(lang.LangMark, "Phones");
+    ViewData["Mobiles"] = Resource.GetData(lang.LangMark, "Mobiles");
+    ViewData["Emails"] = Resource.GetData(lang.LangMark, "Emails");
+    ViewData["WebSites"] = Resource.GetData(lang.LangMark, "WebSites");
+    ViewData["Recent_News"] = Resource.GetData(lang.LangMark, "Recent_News");
+    ViewData["Coming_Soon"] = Resource.GetData(lang.LangMark, "Coming_Soon");
+    ViewData["HomePage"] = Resource.GetData(lang.LangMark, "HomePage");
+    ViewData["Description"] = Resource.GetData(lang.LangMark, "Description");
+    ViewData["Titr1"] = Resource.GetData(lang.LangMark, "Titr1");
+    ViewData["Titr2"] = Resource.GetData(lang.LangMark, "Titr2");
+    ViewData["header_content_bar"] = Resource.GetData(lang.LangMark, "header_content_bar");    
+    ViewData["2014_2018"] = Resource.GetData(lang.LangMark, "2014_2018");
+    ViewData["Design_Site_By"] = Resource.GetData(lang.LangMark, "Design_Site_By");
+    ViewData["Link_Contact"] = Resource.GetData(lang.LangMark, "Link_Contact");
+    
+    //string str = Resource.GetData(lang.LangMark, "HomePage");
+}
+
+<!DOCTYPE html>
+<html dir="@lang.Direction" class="" lang="@lang.LangMark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="robots" content="noodp">
+    <meta name="author" content="http://www.im999max.com/">
+
+    <!-- tag for responsive view -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="publisher" href="https://www.facebook.com/Iounes.Manoochehri/">
+
+    <link rel="canonical" href="https://www.im999max.com">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    @*
+    <title>@ViewData["PageName"]  | @Resource.SiteName</title>*@
+    <title>@ViewData["Title"]</title>
+    <meta name="description" content="@ViewData["Description"]">
+    <meta name="robots" content="index, follow">
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,300,600,700' rel='stylesheet' type='text/css'>
+    
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Noto+Serif|Roboto+Slab" rel="stylesheet">
+
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="~/font/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css">
+
+
+    <!-- menu-im999maxbonum -->
+    <link rel="stylesheet" href="~/plugin/menu-im999maxbonum/menu-style.css" type="text/css">
+
+    <!-- animate -->
+    <link rel="stylesheet" href="~/css/animate.css" type="text/css">
+
+    <!-- Bootstrap css -->
+    @if (isRtl)
+    {
+        <link rel="stylesheet" href="~/plugin/bootstrap 3.3.5/bootstrap-rtl.min.css" type="text/css">
+    }else{
+        <link rel="stylesheet" href="~/plugin/bootstrap 3.3.5/bootstrap.min.css" type="text/css">
+    }
+    <!-- custom scrollbar plugin -->
+    <link rel="stylesheet" href="~/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css" type="text/css">
+
+    <!-- IM999MaxBonum ----->
+    <link rel="stylesheet" href="~/css/style.css" type="text/css">
+    @if (isRtl)
+    {
+        <link rel="stylesheet" href="~/css/style-fa.css" type="text/css">
+    }
+
+    <!-- icon -->
+    <!---->
+    <link rel="shortcut icon" href="~/img/logo32.ico">
+    
+    <link rel="shortcut icon" type="image/png" href="~/img/logo32.bmp">
+
+    <script src="~/js/im999maxbonum-funcs.js" type="text/javascript" asp-append-version="true"></script>
+
+    @*این جی.یو.آی.دی را خودم ایجاد کردم برای مطمئن شدن از این که یک سشن به چند کاربر نسبت داده نشود*@
+    <script>var _im999max_guids = '@guids'; setCookie("GUIDS", "@guids", @expire);</script>
+
+    @if (ViewData["PageTopCode"] != null)
+    {
+        @Html.Raw(ViewData["PageTopCode"]);
+    }
+</head>
+<body>
+    <div class="loader"></div>
+
+    <div id="logo-tag" class="logo-tag-rel"></div>
+    <header id="HOME">
+        <div class="container">
+            <div id="top-bar">
+                
+                <div id="im999max-groupname">
+                    <a href="/">
+
+                        <span class="titr1"> @ViewData["Titr1"] </span>
+                        <span class="titr2"> @ViewData["Titr2"] </span>
+                    </a>                        
+                </div>
+
+                <div id="main-menu-bar" class="menu-bar-rel">
+                    <div class="main-menu">
+                        <div id="menuToggle"><i class="fa fa-bars"></i></div>
+
+
+                        @{
+                            string viewMM = "~/Views/Menus/MainMenu.cshtml";
+                            Html.RenderPartial(viewMM);
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- slider -->
+        @if (ShowSlider)
+        {           
+            string viewMS = "~/Views/MainSlider/MainSlider.cshtml";
+            Html.RenderPartial(viewMS);
+            @*
+            <partial name="MainSlider.cshtml"  for="MainSlider" />
+            *@ 
+        }
+
+        <div id="container-top-bar-down" class="container container-slider-rel">
+            <div id="top-bar-down">
+                <!--
+                <div id="logo-tag-down">
+                    <img src="~/img/logo-tag-down.png" />
+                </div>
+                <div id="header-content-bar">
+                    <span>@ViewData["header_content_bar"]</span>
+                </div>
+                -->
+                <div id="header-content-bar">
+                    <span>@ViewData["header_content_bar"]</span>
+                </div>
+                <div id="logo-tag-down"></div>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+    
+    @*ذخیره سشن فرم خود ساخته ام در کوکی*@
+    <script>setCookie("SC", "@sc", @expire)</script>
+
+    <footer>
+        <div class="container">
+            <div class="footer-top">
+                <div class="wow zoomIn col-xs-12 col-sm-6 col-md-3">
+                    <div class="site-mark-down">
+                        <a href="/en/" title="@ViewData["IM999Max_Com"]">
+                            <img src="~/img/Mark-min200-2.png" alt="IM999Max.Com">
+                        </a>
+                    </div>
+                    <p class="footer-content">@ViewData["Design_Site"] :)</p>
+                </div><!-- /.col-xs-12 .col-sm-3 .col-md-3 -->
+                <div class="wow zoomIn col-xs-12 col-sm-3 col-md-3">
+                    <p class="footer-heading">@ViewData["Links"]</p>
+                    <ul class="footermenu">
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#HOME">@ViewData["HomePage"]</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#ABOUT">@ViewData["About_Us"]</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#services">@ViewData["Services"]</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#product">@ViewData["Samples"]</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#news">@ViewData["News"]</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#CONTACT-US">@ViewData["Contact_Us"]</a></li>
+                        <li><a data-scroll data-options='{ "easing": "easeInQuad" }' href="#MAP">@ViewData["Address"]</a></li>
+                    </ul>
+                </div><!-- /.col-xs-12 .col-sm-3 .col-md-3 -->
+                <div class="wow zoomIn col-xs-12 col-sm-6 col-md-3">
+                    <p class="footer-heading">@ViewData["Find_Us"]</p>
+                    <ul class="footercontact">
+                        <li><i class="fa fa-home"></i> <span>@ViewData["Address"]:</span> @ViewData["Address_Text"]</li>
+                        <li><i class="fa fa-phone"></i> <span>@ViewData["Phones"]:</span><a href="tel:+980000000000" class="tel-fa"> +@ViewData["980000000000"] </a><br/><a href="tel:+980000000000" class="tel-fa"> +@ViewData["980000000000"] </a></li>
+                        <li><i class="fa fa-mobile"></i> <span>@ViewData["Mobiles"]:</span><a href="tel:+980000000000" class="tel-fa"> +@ViewData["980000000000"] </a><br/><a href="tel:+980000000000" class="tel-fa"> +@ViewData["980000000000"] </a></li>
+                        <li><i class="fa fa-envelope"></i> <span>@ViewData["Emails"]:</span><a href="mailto:info@im999max.com"> info@IM999Max.com</a></li>
+                        <li><i class="fa fa-globe"></i> <span>@ViewData["WebSites"]:</span><a href="http://www.im999max.com"> IM999Max.com</a></li>
+                    </ul>
+                    <i class="flaticon-home78"></i>
+                </div><!-- /.col-xs-12 .col-sm-3 .col-md-3 -->
+                <div class="wow zoomIn col-xs-12 col-sm-6 col-md-3">
+                    <p class="footer-heading">@ViewData["Recent_News"]</p>
+                    <ul class="footerblog">
+                        <li><a href="#">@ViewData["Coming_Soon"] :)</a> <p>15th Agu 2018</p></li>
+                        <li><a href="#">@ViewData["Coming_Soon"] :)</a> <p>15th Agu 2018</p></li>
+                        <li><a href="#">@ViewData["Coming_Soon"] :)</a> <p>15th Agu 2018</p></li>
+                    </ul>
+                </div><!-- /.col-xs-12 .col-sm-3 .col-md-3 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.container -->
+        
+        <div class="container" id="footer-bottom">
+            <div class="footer-bottom">
+                <!--
+                <div class="wow zoomIn col-xs-12">
+                -->
+                <div class="col-xs-12">
+
+                    <div class="im999max">
+                        <a href="http://im999max.com" target="_blank">
+                            <div class="im999max-arm">
+                                <img class="bottom" src="~/img/im999max1.bmp">
+                                <img class="top" src="~/img/im999max0.bmp">
+                            </div>
+                        </a>
+                        <div class="im999max-links">
+                            <p><span class="footer-company"><i class="fa fa-copyright" data-="©"></i> IM999Max.com </span>&nbsp;&nbsp;&nbsp;<span class="footer-year"> @ViewData["2014_2018"] </span> <span>@ViewData["Design_Site_By"]</span> <a href="http://im999max.com" target="_blank">IM999MaxBonum</a>. @ViewData["Link_Contact"] <a href="mailto:info@im999max.com">info@im999max.com</a></p>
+                        </div>
+                    </div>
+                    <div class="backtop">
+                        <i class="fa fa-angle-up back-to-top" style="display: inline-block;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Footer -->
+
+
+    <!-- jQuery JS -->
+    <script src="~/js/jquery-1.12.4.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/js/jquery-migrate-1.4.1.min.js" type="text/javascript" asp-append-version="true"></script>
+
+    <!-- for ajax form -->
+    <script src="~/plugin/jquery-ajax-unobtrusive/dist/jquery.unobtrusive-ajax.min.js" type="text/javascript" asp-append-version="true"></script>
+
+    <!--Bootatrap JS -->
+    @if (isRtl)
+    {
+        <script src="~/plugin/bootstrap 3.3.5/bootstrap-rtl.min.js" type="text/javascript" asp-append-version="true"></script>
+    }else{
+        <script src="~/plugin/bootstrap 3.3.5/bootstrap.min.js" type="text/javascript" asp-append-version="true"></script>
+    }
+
+    <!-- google-map -->
+    <script src="https://maps-api-ssl.google.com/maps/api/js?sensor=false&key=AIzaSyCAaVX6VbSjE24uKQRjj6qLaQaC8brd4Q4"  type="text/javascript" ></script>
+
+    <!-- menu-im999maxbonum -->
+    <script src="~/plugin/menu-im999maxbonum/menu-script.js" type="text/javascript" asp-append-version="true"></script>
+
+    <!-- Jssor Slider -->
+    <script src='~/plugin/Jssor Slider/jssor.slider-27.1.0.min.js' type="text/javascript" asp-append-version="true"></script>
+
+    <!-- wow -->
+    <script src="~/js/wow.min.js" type="text/javascript" asp-append-version="true"></script>
+
+    <!-- instafeed -->
+    <script src="~/plugin/instafeed/instafeed.min.js" type="text/javascript" asp-append-version="true"></script>
+
+    <!-- custom scrollbar plugin -->
+    <script src="~/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js" type="text/javascript" asp-append-version="true"></script>
+    <script src="~/plugin/mCustomScrollbar/jquery.mousewheel.min.js" type="text/javascript" asp-append-version="true"></script>
+
+    <!-- IM999MaxBonum scripts -->
+    <script src="~/js/script.js" type="text/javascript" asp-append-version="true"></script>
+
+</body>
+</html>

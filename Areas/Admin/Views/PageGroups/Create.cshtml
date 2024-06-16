@@ -1,0 +1,127 @@
+@using IM999MaxBonum;
+@using IM999MaxBonum.Models;
+
+@model vPageGroup
+
+@{
+    //ViewData["HeaderAddINCode"] += "<link rel='stylesheet' href='/css/admin/page_groups/create.css' type='text/css'>";
+    ViewData["FooterAddINCode"] += "<script src='/js/admin/page_groups/create.js' type='text/javascript'></script>";
+
+    var lang = ViewBag.CurrentLang;
+    bool isRtl = lang.Direction.Trim().ToLower() == "ltr" ? false : true;
+
+    string pageGuid = Guid.NewGuid().ToString();
+
+    ViewData["Site_Page_Group"] = Resource.GetData(lang.LangMark, "Site_Page_Group");
+    ViewData["Create"] = Resource.GetData(lang.LangMark, "Create");
+    
+    ViewData["PageName"] = ViewData["Create"] + " " + ViewData["Site_Page_Group"];
+    
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+
+    ViewData["HomePage"] = Resource.GetData(lang.LangMark, "HomePage");
+
+    ViewData["PageGroupName"] = Resource.GetData(lang.LangMark, "PageGroupName");
+    ViewData["Cancel"] = Resource.GetData(lang.LangMark, "Cancel");
+    ViewData["Language"] = Resource.GetData(lang.LangMark, "Language");
+    ViewData["Submiting"] = Resource.GetData(lang.LangMark, "Submiting");
+    ViewData["Reset"] = Resource.GetData(lang.LangMark, "Reset");
+
+    ViewData["Waiting"]  = Resource.GetData(lang.LangMark, "Waiting");
+
+    ViewData["PageGroupName_Val_Req"] = string.Format( Resource.GetData(lang.LangMark, "Val_Req"), ViewData["PageGroupName"]);    
+}
+
+<div id="dialogs">
+    @Html.Partial("Dialog", null, new ViewDataDictionary(this.ViewData) 
+                                            { { "id", "dialogWait" }, {"title", ""}, 
+                                            {"ShowClose", false}, {"Message", ViewData["Waiting"]} })
+</div>
+
+<!-- START BREADCRUMB -->
+<ul class="breadcrumb">
+    <li><a href="/Admin/@(lang.LangMark)/">@ViewData["HomePage"]</a></li>
+    <li><a href="/Admin/@(lang.LangMark)/PageGroups/">@ViewData["Site_Page_Group"]</a></li>
+    <li class="active">@ViewData["PageName"]</li>
+</ul>
+
+<!-- PAGE TITLE -->
+<div class="page-title">
+    @*
+    <h2><span class="fa fa-align-justify"></span>@ViewData["PageName"]</h2> *@
+    <h2><span class="fa fa-tasks"></span>@ViewData["PageName"]</h2>
+</div>
+<!-- END PAGE TITLE -->
+
+<!-- PAGE CONTENT -->
+<div class="container page-content">
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><a><span class="fa fa-edit"></span> @ViewData["PageName"]</a></h3>
+
+                    <ul class="panel-controls">
+                        <li><a href="#" class="panel-fullscreen"><span class="fa fa-expand"></span></a></li>
+                        <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
+                        <li><a href="#" class="panel-refresh"><span class="fa fa-refresh"></span></a></li>
+                        <li><a href="#" class="panel-remove"><span class="fa fa-times"></span></a></li>
+                    </ul>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div id="page-group-msg" class="alert alert-danger" style="display:none;" role="alert"></div>
+                    </div>
+
+                    <form id="page-group-form" action="DoCreate" 
+                        data-ajax="true" data-ajax-method="POST"
+                        data-ajax-begin="onBeginCreate" data-ajax-failure="onFailedCreate" 
+                        data-ajax-complete="" data-ajax-success="onSuccessCreate"
+                        >
+
+                            <input asp-for="PageGroupName" type="text" name="PageGroupName" placeholder='@ViewData["PageGroupName"]' class="form-control"/>
+                            
+                            @*
+                            @Html.DropDownListFor(model => model.LangId, (SelectList)ViewData["Languages"], null, htmlAttributes: new { id = "PageGroupLang1_select", @class = "select" })
+
+                            <div class="dropdown" id="PageGroupLang1">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Language : English
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li data-id="2" class="active"><a href="#">English</a></li>
+                                    <li data-id="1"><a href="#">Farsi</a></li>
+                                </ul>
+                            </div>
+                            *@
+                            @*برای قراردادن دراپ.داون بوت.استرپی*@
+                            @Html.Raw( ViewData["DropDown_Languages"])
+
+                            <!--
+                            <input name="guid" type="hidden" value="@pageGuid"/>
+                            -->
+
+                            <br/>
+
+                            <div class="form-button"> 
+                                <input type="submit"  id="create-pg-btn" class="btn btn-primary" value='@ViewData["Create"]'/>
+                                <button type="button" id="reset-form" class="btn btn-danger">@ViewData["Reset"]</button>
+                                <button type="button" id="back-pg-btn" class="btn btn-dark">@ViewData["Cancel"]</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var __lang = '@Html.Raw(ViewData["Language"])';
+    var __val_pageGroupName = '@Html.Raw(ViewData["PageGroupName_Val_Req"])';
+    var __create = '@Html.Raw(ViewData["Create"])';
+    var __submiting = '@Html.Raw(ViewData["Submiting"])';
+    var __langMark = '@Html.Raw(lang.LangMark)';
+</script>
