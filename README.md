@@ -2,7 +2,7 @@
 
 # Multi language cms with ASP.NET core MVC ver 2.2.1
 
-IM999MaxBonum-with-vs-asp-core-Original is a **old** source of project and a little **UPDATE**. It is a multi language cms write with ASP.Net core MVC ver 2.2.1.
+IM999MaxBonum-with-vs-asp-core-Original is a **OLD** source of project and a little **UPDATE**. It is a multi language cms write with ASP.Net core MVC ver 2.2.1.
 
 >[!WARNING]
 >I tested it a little
