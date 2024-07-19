@@ -11,8 +11,8 @@ IM999MaxBonum-with-vs-asp-core-Original is a **OLD** source of project and a lit
 >I tested it a little
 
 > [!IMPORTANT]  
-> Thanks **the God** :)💐😀🌸🌺🌹🌼🌷
-
+> 💐With hope the God this be useful :)💐
+> 💐با امید به خدای به خوبی و خوشی :)💐 
 [facebook: facebook.com/Iounes.Manoochehri](https://facebook.com/Iounes.Manoochehri)
 
 [linkedin: linkedin.com/IM999MaxGood](https://ir.linkedin.com/in/im999maxgood)
